@@ -1,0 +1,9 @@
+@media print {
+  body.drawer-open-left.jsenabled,
+  body.drawer-open-right.jsenabled {
+    margin: 0;
+  }
+  .container {
+    width: auto;
+  }
+}/*# sourceMappingURL=print.css.map */

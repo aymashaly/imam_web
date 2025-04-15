@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  --fontFamily: font-family: "Roboto", sans-serif !important;
+}
+
+:root {
+  --fontSize: 16px;
+  --transition: all ease .5s;
+  --mainColor: [[setting:brandcolor]];
+  --mainColor2: [[setting:secondarycolor]];
+  --footerBG: [[setting:footer_bg]];
+  --optionalColor: #646464;
+  --whiteColor: #ffffff;
+  --blackColor: #000000;
+  --fontFamily: font-family: "Roboto", sans-serif !important;
+  --BorderRadius: 5px;
+  --HeadingColor: #0d0c0c;
+  --BoxShadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: var(--fontSize) !important;
+  font-family: var(--fontFamily) !important;
+  color: var(--optionalColor) !important;
+}/*# sourceMappingURL=pre.css.map */

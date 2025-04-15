@@ -1,0 +1,96 @@
+{{> theme_boost/head }}
+
+<body {{{ bodyattributes }}}>
+{{> core/local/toast/wrapper}}
+
+    <div id="wrapper">
+
+        {{{ output.standard_top_of_body_html }}}
+        
+        {{> theme_boost/navbar }}
+
+        <section class="dashboard_sidebar dn-1199">
+            <div class="dashboard_sidebars">
+                <div class="user_board">
+                    <div class="dashbord_nav_list">
+                        {{{ output.user_menu }}}
+                    </div>
+                    <div class="pl30 pr30">
+                        {{{ leftblocks }}}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="our-dashbord dashbord">
+            <div class="pages-banner-area ptb-100">
+                <div class="container">
+                    <div class="pages-banner-content wow animate__animated animate__fadeInUp delay-0-2s">
+                        <h2>{{{ pageheading }}}</h2>
+                        {{output.if_home_pages}}
+
+                        {{{ output.navbar }}}
+                    </div>
+                </div>
+
+                {{#banner_shape_image}}
+                    <img src="{{banner_shape_image}}" class="shape shape-1" alt="{{sitename}}">
+                {{/banner_shape_image}}
+                
+                 {{#banner_shape_image2}}
+                    <img src="{{banner_shape_image2}}" class="shape shape-2" alt="{{sitename}}">
+                {{/banner_shape_image2}}
+
+                 {{#banner_shape_image3}}
+                    <img src="{{banner_shape_image3}}" class="shape shape-3" alt="{{sitename}}">
+                {{/banner_shape_image3}}
+            </div>
+            
+            <div class="dashboard_main_content">
+                <div class="container-fluid">
+                    <div class="main_content_container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                {{{ output.full_header }}}
+
+                                {{{ output.region_main_settings_menu }}}
+                                {{#has_blocks_above_content}}
+                                    {{{ blocks_above_content }}}
+                                {{/has_blocks_above_content}}
+                                {{{ output.course_content_header }}}
+                                {{{ output.main_content }}}
+                                {{{ output.activity_navigation }}}
+                                {{{ output.course_content_footer }}}
+                                {{#has_blocks_below_content}}
+                                    {{{ blocks_below_content }}}
+                                {{/has_blocks_below_content}}
+                            </div>
+                            <div class="col-lg-4">
+                                {{#hasblocks}}
+                                    <div class="edma-sidebar-region" aria-label="{{#str}}blocks{{/str}}">
+                                        {{{ sidepreblocks }}}
+                                    </div>
+                                {{/hasblocks}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{> theme_boost/footer }}
+        </div>
+    </div>
+    {{{ output.standard_after_main_region_html }}}
+
+</body>
+</html>
+{{#js}}
+  M.util.js_pending('theme_boost/loader');
+  require(['theme_boost/loader'], function() {
+  M.util.js_complete('theme_boost/loader');
+  });
+  M.util.js_pending('theme_boost/drawer');
+  require(['theme_boost/drawer'], function(mod) {
+  mod.init();
+  M.util.js_complete('theme_boost/drawer');
+  });
+{{/js}}
