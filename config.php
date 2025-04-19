@@ -6,10 +6,10 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mysqli';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = 'localhost';
-$CFG->dbname    = 'moodle';
-$CFG->dbuser    = 'root';
-$CFG->dbpass    = '123';
+$CFG->dbhost    = '13.39.95.238';
+$CFG->dbname    = 'tofaha_i';
+$CFG->dbuser    = 'tofaha';
+$CFG->dbpass    = 'aA@981031';
 $CFG->prefix    = 'mdl_';
 $CFG->dboptions = array (
   'dbpersist' => 0,
@@ -18,8 +18,8 @@ $CFG->dboptions = array (
   'dbcollation' => 'utf8mb4_general_ci',
 );
 
-$CFG->wwwroot   = 'http://imam.local';
-$CFG->dataroot  = 'D:\\Dev\\moodledata';
+$CFG->wwwroot   = 'http://imam.local:8080';
+$CFG->dataroot  = __DIR__.'\\..\\imam_moodledata';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
