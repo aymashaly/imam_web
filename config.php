@@ -17,11 +17,14 @@ $CFG->dboptions = array (
   'dbsocket' => '',
   'dbcollation' => 'utf8mb4_general_ci',
 );
-
+@error_reporting(E_ALL | E_STRICT);
+@ini_set('display_errors', '1');
+$CFG->debug = (E_ALL | E_STRICT);
+$CFG->debugdisplay = true;
 $CFG->wwwroot   = 'http://imam.local:8080';
 $CFG->dataroot  = __DIR__.'\\..\\imam_moodledata';
 $CFG->admin     = 'admin';
-
+$CFG->disableupgradewarning = true;
 $CFG->directorypermissions = 0777;
 
 require_once(__DIR__ . '/lib/setup.php');
