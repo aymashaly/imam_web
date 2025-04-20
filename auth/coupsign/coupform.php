@@ -49,6 +49,9 @@ if ($mform->is_cancelled()) {
     $coupon                 = $fromform;
     $coupon->usage_count    = $fromform->allowusage;
     $coupon->companyid      = $fromform->company;
+    $coupon->email_pattern      = $fromform->email_pattern;
+    $coupon->price      = $fromform->price;
+    $coupon->discount_type      = $fromform->discount_type;
     $coupon->delete_code      = 0;
     $coupon->delete_date      = 0;
 
