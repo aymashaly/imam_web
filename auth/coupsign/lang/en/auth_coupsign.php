@@ -24,6 +24,12 @@
 
 $string['pluginname'] = 'Coupon SignUp';
 $string['coupsign:list'] = 'Coupon Sign:list';
+$string['discount_type'] = 'Discount Type';
+$string['percentage'] = 'Percentage';
+$string['fixed'] = 'Fixed';
+$string['price'] = 'Price';
+$string['email_pattern'] = 'Email Pattern';
+$string['email_pattern_help'] = 'Please write email pattern like this @domain.com';
 $string['coupsign:edit'] = 'Coupon Sign:edit';
 $string['coupsign:delete'] = 'Coupon Sign:delete';
 $string['coupsign:add'] = 'Coupon Sign:add';

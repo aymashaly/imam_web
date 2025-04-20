@@ -42,7 +42,15 @@ class coupform extends \moodleform {
 
         // Notes
         $mform->addElement('text', 'notes', get_string('notes','auth_coupsign'));
+        $mform->addElement('text', 'email_pattern',  get_string('email_pattern', 'auth_coupsign'));
+        $mform->addElement('text', 'price', get_string('price','auth_coupsign'));
+        $mform->addElement('select', 'discount_type', get_string('discount_type', 'auth_coupsign'),[
+            'percentage' => get_string('percentage', 'auth_coupsign'),
+            'fixed' => get_string('fixed', 'auth_coupsign')
+        ]);
         $mform->setType('notes', PARAM_RAW);
+        $mform->setType('email_pattern', PARAM_TEXT);
+        $mform->setType('price', PARAM_INT);
         $mform->addHelpButton('notes', 'notes', 'auth_coupsign');
         // coupon code.
         $mform->addElement('static', 'couponcode', get_string('couponcode','auth_coupsign', 'coupon code'), $coupon);
@@ -64,6 +72,7 @@ class coupform extends \moodleform {
         $mform->addElement('text', 'allowusage', get_string('allowusage','auth_coupsign'));
         $mform->setType('allowusage', PARAM_NOTAGS);
         $mform->addHelpButton('allowusage', 'allowusage', 'auth_coupsign');
+        $mform->addHelpButton('email_pattern', 'email_pattern', 'auth_coupsign');
 
         // Start Date.
         $mform->addElement('date_selector', 'start_date', get_string('startdate','auth_coupsign'));
