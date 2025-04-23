@@ -17,9 +17,9 @@ $CFG->dboptions = array (
   'dbsocket' => '',
   'dbcollation' => 'utf8mb4_general_ci',
 );
-@error_reporting(E_ERROR );
+@error_reporting(E_ALL );
 @ini_set('display_errors', '1');
-$CFG->debug = (E_ERROR);
+$CFG->debug = (E_ALL);
 $CFG->debugdisplay = true;
 $CFG->wwwroot   = 'http://imam.local:8080';
 $CFG->dataroot  = __DIR__.'\\..\\imam_moodledata';
