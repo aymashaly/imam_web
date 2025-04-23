@@ -21,8 +21,8 @@ $CFG->dboptions = array (
 @ini_set('display_errors', '1');
 $CFG->debug = (E_ERROR);
 $CFG->debugdisplay = true;
-$CFG->wwwroot   = 'http://imam.local:8080';
-$CFG->dataroot  = __DIR__.'\\..\\imam_moodledata';
+$CFG->wwwroot   = 'http://imam.themistlabs.com';
+$CFG->dataroot  = '/var/www/imam_moodledata';
 $CFG->admin     = 'admin';
 $CFG->disableupgradewarning = true;
 $CFG->directorypermissions = 0777;
