@@ -33,7 +33,7 @@ $mform->display();
 
 $joinsql = "SELECT j.name as jobrole, c.shortname as competency
             FROM {local_org_jobrole_competencies} jc
-            JOIN {local_org_jobroles} j ON jc.jobroleid = j.id
+            JOIN {org_jobroles} j ON jc.jobroleid = j.id
             JOIN {competency} c ON jc.competencyid = c.id";
 
 $records = $DB->get_records_sql($joinsql);
