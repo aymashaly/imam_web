@@ -17,6 +17,7 @@ echo html_writer::start_div('mb-4');
 echo html_writer::link(new moodle_url('sectors.php'), '➕ Add Sector', ['class' => 'btn btn-primary mr-2']);
 echo html_writer::link(new moodle_url('departments.php'), '➕ Add Department', ['class' => 'btn btn-secondary mr-2']);
 echo html_writer::link(new moodle_url('jobroles.php'), '➕ Add Job Role', ['class' => 'btn btn-success']);
+echo html_writer::link(new moodle_url('jobrole_competencies.php'), get_string('managejobrolecompetencies', 'local_orgstructure'), ['class' => 'btn btn-success']);
 echo html_writer::end_div();
 
 $sectors = $DB->get_records('org_sectors');
