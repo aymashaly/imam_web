@@ -13,7 +13,7 @@ class jobrole_competency_form extends \moodleform {
 
         $mform = $this->_form;
 
-        $jobroles = $DB->get_records_menu('local_org_jobroles', null, '', 'id, name');
+        $jobroles = $DB->get_records_menu('org_jobroles', null, '', 'id, name');
         $competencies = $DB->get_records_menu('competency', null, '', 'id, shortname');
 
         $mform->addElement('select', 'jobroleid', get_string('jobrole', 'local_orgstructure'), $jobroles);
