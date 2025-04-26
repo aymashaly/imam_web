@@ -23,3 +23,4 @@ $string['managejobrolecompetencies'] = 'Manage Job Role Competencies';
 $string['jobrole'] = 'Job Role';
 $string['competency'] = 'Competency';
 $string['recordadded'] = 'Record Added Successfully';
+$string['recordexists'] = 'Record Already Exists';
