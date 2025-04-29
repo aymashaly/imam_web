@@ -18,23 +18,28 @@ $mform = new jobrole_competency_form();
 if ($mform->is_cancelled()) {
     redirect($PAGE->url);
 } elseif ($data = $mform->get_data()) {
-    $record = new stdClass();
-    $record->jobroleid = $data->jobroleid;
-    $record->competencyid = $data->competencyid;
-    $record->timecreated = time();
     $exists = $DB->record_exists('local_org_jobrole_competencies', [
         'jobroleid' => $data->jobroleid,
         'competencyid' => $data->competencyid
     ]);
-
     if ($exists) {
         redirect($PAGE->url, get_string('recordexists', 'local_orgstructure'), 2);
     }
+    $record = new stdClass();
+    $record->jobroleid = $data->jobroleid;
+    $record->competencyid = $data->competencyid;
+    $record->timecreated = time();
+    
     $DB->insert_record('local_org_jobrole_competencies', $record);
     redirect($PAGE->url, get_string('recordadded', 'local_orgstructure'), 2);
 }
 
 echo $OUTPUT->header();
+render_breadcrumb([
+    ['label' => 'orgstructure', 'url' => new moodle_url('/local/orgstructure/manage.php')],
+    ['label' => 'managejobrolecompetencies']
+]);
+
 echo $OUTPUT->heading(get_string('managejobrolecompetencies', 'local_orgstructure'));
 
 $mform->display();
