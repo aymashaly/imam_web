@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/mist/db" VERSION="2025050700" COMMENT="Database structure for MIST plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<TABLES>
+    <TABLE NAME="local_mist_certskip" COMMENT="Requests for skipping courses based on external certificates">
+    <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="certificate_name" TYPE="char" LENGTH="255" SEQUENCE="false" NOTNULL="true"/>
+        <FIELD NAME="issuing_body" TYPE="char" LENGTH="255" SEQUENCE="false" NOTNULL="true"/>
+        <FIELD NAME="date_issued" TYPE="int" LENGTH="10" SEQUENCE="false" NOTNULL="true"/>
+        <FIELD NAME="file_path" TYPE="char" LENGTH="255" SEQUENCE="false" NOTNULL="false"/>
+        <FIELD NAME="request_status" TYPE="char" LENGTH="20" SEQUENCE="false" NOTNULL="true"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" SEQUENCE="false" NOTNULL="true"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" SEQUENCE="false" NOTNULL="true"/>
+    </FIELDS>
+    <KEYS>
+        <!-- Primary Key -->
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        
+        <!-- Foreign Keys -->
+        <KEY NAME="userfk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="coursefk" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+    </KEYS>
+    </TABLE>
+</TABLES>
+</XMLDB>
