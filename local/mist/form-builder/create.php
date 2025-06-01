@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $record = new stdClass();
     $record->name = $name;
-    $record->slug = strtolower(trim(preg_replace('/[^a-z0-9]+/', '-', $name), '-'));
+    $record->slug = \core\uuid::generate();
     $record->jsonschema = $jsonschema;
     $record->timecreated = time();
     $record->createdby = $USER->id;

@@ -1,26 +1,26 @@
 <?php
 
-require('../../../config.php');
+require('../../../../config.php');
 require_login();
 
 $context = context_system::instance();
 require_capability('local/mist:view', $context);
 
-$PAGE->set_url(new moodle_url('/local/mist/view.php'));
+$PAGE->set_url(new moodle_url('/local/mist/certskip/views/myrequests.php'));
 $PAGE->set_context($context);
-$PAGE->set_title(get_string('viewrequests', 'local_mist'));
-$PAGE->set_heading(get_string('viewrequests', 'local_mist'));
+$PAGE->set_title(get_string('myrequests', 'local_mist'));
+$PAGE->set_heading(get_string('myrequests', 'local_mist'));
 
 echo $OUTPUT->header();
 echo html_writer::link(
     new moodle_url('/local/mist/index.php'),
     '&larr; Back to Board'
 );
-echo $OUTPUT->heading(get_string('viewrequests', 'local_mist'));
+echo $OUTPUT->heading(get_string('myrequests', 'local_mist'));
 
 global $DB, $USER;
-
-$sql = "SELECT * FROM {local_mist_certskip} ORDER BY timecreated DESC";
+$userid = $USER->id;
+$sql = "SELECT * FROM {local_mist_certskip} WHERE userid = $userid ORDER BY timecreated DESC";
 $records = $DB->get_records_sql($sql);
 
 if ($records) {
@@ -28,11 +28,7 @@ if ($records) {
     foreach ($records as $record) {
         echo html_writer::tag('li', 
             "{$record->certificate_name} ({$record->issuing_body}) - " .
-            get_string('status_' . $record->request_status, 'local_mist') .
-            '<br>'. 
-            html_writer::link(new moodle_url('/local/mist/certskip/views/view.php', ['id' => $record->id]), 'View', [
-                'class' => 'btn btn-info',
-            ])
+            get_string('status_' . $record->request_status, 'local_mist')
         );
     }
     echo html_writer::end_tag('ul');

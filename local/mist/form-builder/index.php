@@ -26,12 +26,12 @@ echo $OUTPUT->single_button($createurl, get_string('createform', 'local_mist'), 
 // Display forms table
 if (!empty($forms)) {
     $table = new html_table();
-    $table->head = ['ID', 'Name','Slug', 'Created By', 'Created At','link'];
+    $table->head = ['ID', 'Name', 'Created By', 'Created At','link'];
     foreach ($forms as $form) {
         $row = [];
         $row[] = $form->id;
         $row[] = format_string($form->name);
-        $row[] = format_string($form->slug);
+        // $row[] = format_string($form->slug);
         $row[] = fullname(core_user::get_user($form->createdby));
         $row[] = userdate($form->timecreated);
         $submiturl = new moodle_url('/submit_form.php', ['slug' => $form->slug]);
@@ -45,7 +45,11 @@ if (!empty($forms)) {
             ]
         );
         $answersurl = new moodle_url('/local/mist/form-builder/answers.php', ['formid' => $form->id]);
+        $editurl = new moodle_url('/local/mist/form-builder/edit.php', ['id' => $form->id]);
+        $deleteurl = new moodle_url('/local/mist/form-builder/delete_form.php', ['id' => $form->id]);
         $row[] = html_writer::link($answersurl, get_string('viewanswers', 'local_mist'), ['class' => 'btn btn-info']);
+        $row[] = html_writer::link($editurl, get_string('edit', 'local_mist'), ['class' => 'btn btn-warning']);
+        $row[] = html_writer::link($deleteurl, get_string('delete', 'local_mist'), ['class' => 'btn btn-danger']);
         $table->data[] = $row;
     }
     echo html_writer::table($table);

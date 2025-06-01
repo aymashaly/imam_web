@@ -5,9 +5,30 @@ namespace local_mist\form;
 require_once("$CFG->libdir/formslib.php");
 
 class request_form extends \moodleform {
+    public function get_enctype() {
+        return 'multipart/form-data';
+    }
+    public function definition_after_data() {
+        parent::definition_after_data();
+        
+        $draftitemid = file_get_submitted_draft_itemid('certificate_file');
+        file_prepare_draft_area(
+            $draftitemid,
+            \context_system::instance()->id,
+            'local_mist',
+            'attachment',
+            0, // temporary itemid, replaced on save
+            ['subdirs' => 0, 'maxfiles' => 1]
+        );
+
+        $this->_form->setDefault('certificate_file', $draftitemid);
+    }
+
     public function definition() {
         $mform = $this->_form;
-
+        $attr = $mform->getAttributes();
+        $attr['enctype'] = "multipart/form-data";
+        $mform->setAttributes($attr);
         $mform->addElement('text', 'certificate_name', get_string('certificate_name', 'local_mist'));
         $mform->setType('certificate_name', PARAM_TEXT);
         $mform->addRule('certificate_name', null, 'required');
@@ -22,9 +43,8 @@ class request_form extends \moodleform {
         $mform->addElement('select', 'courseid', 'Course to skip', self::get_courses_list());
         $mform->addRule('courseid', null, 'required');
 
-        $mform->addElement('filepicker', 'certificate_file', get_string('file_path', 'local_mist'), null, [
-            'accepted_types' => ['.pdf', '.jpg', '.png']
-        ]);
+        $mform->addElement('filepicker', 'certificate_file', 'Upload Certificate', null, ['maxbytes' => 10485760, 'accepted_types' => '*']);
+        // $mform->setType('certificate_file', PARAM_INT);
 
         $this->add_action_buttons();
     }

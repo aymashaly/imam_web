@@ -22,3 +22,27 @@ function local_mist_extend_navigation(global_navigation $navref) {
         $navref->add_node($node);
     }
 }
+function local_mist_certskip_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
+    if ($context->contextlevel !== CONTEXT_SYSTEM) {
+        return false;
+    }
+
+    if ($filearea !== 'attachment') {
+        return false;
+    }
+
+    $itemid = array_shift($args); // $request->id
+    $filename = array_pop($args);
+    $filepath = '/' . implode('/', $args) . '/'; // usually just '/'
+
+    $fs = get_file_storage();
+    $file = $fs->get_file($context->id, 'local_mist_certskip', 'attachment', $itemid, $filepath, $filename);
+
+    if (!$file || $file->is_directory()) {
+        return false;
+    }
+
+    // Optional: access control (capabilities, record ownership, etc.)
+
+    send_stored_file($file, 0, 0, $forcedownload, $options);
+}
