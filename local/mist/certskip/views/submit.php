@@ -18,9 +18,13 @@ $mform = new \local_mist\form\request_form();
 if ($mform->is_cancelled()) {
     redirect(new moodle_url('/local/mist/index.php'));
 } else if ($data = $mform->get_data()) {
-    // var_dump($mform->get_file_content('certificate_file'));
-    // die();
-    // var_dump($data);
+    $filename = $mform->get_new_filename('certificate_file');
+    $fileext = pathinfo($filename, PATHINFO_EXTENSION);
+    $filename = time().".".$fileext;
+    $fullpath = __DIR__."/../uploads/". $filename;
+    $success = $mform->save_file('certificate_file', $fullpath, true);
+    $fileurl = "/local/mist/certskip/uploads/$filename";
+    // var_dump($success);
     // die();
     global $DB, $USER;
     
@@ -34,37 +38,10 @@ if ($mform->is_cancelled()) {
     $record->timecreated = time();
     $record->timemodified = time();
     // Handle file upload if present.
-    $record->file_path = '';
+    $record->file_path = $fileurl;
     $itemid = $DB->insert_record('local_mist_certskip', $record,true);
     $record->id = $itemid;
-    if (!empty($data->certificate_file)) {
-        $fs = get_file_storage();
-        $context = context_system::instance(); // Or context for your plugin
-        $component = 'local_mist';
-        $filearea = 'attachment';
-
-        file_save_draft_area_files(
-            $data->certificate_file, // draft itemid from form
-            $context->id,
-            $component,
-            $filearea,
-            $itemid,
-            ['subdirs' => 0, 'maxfiles' => 1]
-        );
-
-        // Optionally confirm file was saved
-        $files = $fs->get_area_files($context->id, $component, $filearea, $itemid, '', false);
-        if ($files) {
-            $file = reset($files);
-            $record->file_path = $file->get_filename(); // Just the filename
-        }
-        $DB->update_record('local_mist_certskip',$record);
-    }
-
-    
-
-    
-    redirect(new moodle_url('/local/mist/certskip/index.php'), get_string('requestsubmitted', 'local_mist'));
+    redirect(new moodle_url('/local/mist/certskip/views/view.php?id='.$itemid), get_string('requestsubmitted', 'local_mist'));
 }
 
 echo $OUTPUT->header();

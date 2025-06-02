@@ -8,21 +8,6 @@ class request_form extends \moodleform {
     public function get_enctype() {
         return 'multipart/form-data';
     }
-    public function definition_after_data() {
-        parent::definition_after_data();
-        
-        $draftitemid = file_get_submitted_draft_itemid('certificate_file');
-        file_prepare_draft_area(
-            $draftitemid,
-            \context_system::instance()->id,
-            'local_mist',
-            'attachment',
-            0, // temporary itemid, replaced on save
-            ['subdirs' => 0, 'maxfiles' => 1]
-        );
-
-        $this->_form->setDefault('certificate_file', $draftitemid);
-    }
 
     public function definition() {
         $mform = $this->_form;

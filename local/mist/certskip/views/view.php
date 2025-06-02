@@ -18,10 +18,18 @@ $PAGE->set_title('Certificate Skip Request');
 $PAGE->set_heading('Certificate Skip Request');
 
 echo $OUTPUT->header();
-echo html_writer::link(
-    new moodle_url('/local/mist/certskip/index.php'),
-    '&larr; Back to List'
-);
+if(is_siteadmin()){
+
+    echo html_writer::link(
+        new moodle_url('/local/mist/certskip/index.php'),
+        '&larr; Back to List'
+    );
+}else{
+    echo html_writer::link(
+        new moodle_url('/local/mist/certskip/views/myrequests.php'),
+        '&larr; Back to List'
+    );
+}
 echo $OUTPUT->heading('Certificate Skip Request');
 
 // Fetch the request
@@ -39,25 +47,11 @@ $course = $DB->get_record('course', ['id' => $request->courseid], '*', MUST_EXIS
 
 $filelinks = '-';
 if (!empty($request->file_path)) {
-    $context = context_system::instance();
-    $component = 'local_mist';
-    $filearea = 'attachment';
-    $itemid = $request->id;
-    $filename = $request->file_path; // e.g., "myfile.pdf"
+    $url = new  moodle_url($request->file_path);
 
-    $url = moodle_url::make_pluginfile_url(
-        $context->id,
-        $component,
-        $filearea,
-        $itemid,
-        '/',
-        $filename
-    );
-
-    echo html_writer::link($url, $filename);
-
-
-    $filelinks = html_writer::link($url, $filename);
+    $filelinks = html_writer::link($url, "View File",[
+        "target" => "_blank"
+    ]);
 }
 
 echo html_writer::start_tag('table', ['class' => 'generaltable']);
@@ -96,7 +90,7 @@ echo html_writer::tag('tr',
 );
 echo html_writer::end_tag('tbody');
 echo html_writer::end_tag('table');
-if($request->request_status == 'pending'){
+if($request->request_status == 'pending' and is_siteadmin()){
     $approveurl = new moodle_url('/local/mist/certskip/action.php', ['action' => 'approve', 'id' => $request->id]);
     $refuseurl = new moodle_url('/local/mist/certskip/action.php', ['action' => 'refuse', 'id' => $request->id]);
 

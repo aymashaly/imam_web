@@ -29,7 +29,9 @@ if ($records) {
         echo html_writer::tag('li', 
             "{$record->certificate_name} ({$record->issuing_body}) - " .
             get_string('status_' . $record->request_status, 'local_mist')
-        );
+        ).html_writer::link(new moodle_url('/local/mist/certskip/views/view.php', ['id' => $record->id]), 'View', [
+                'class' => 'btn btn-info',
+        ]);
     }
     echo html_writer::end_tag('ul');
 } else {
