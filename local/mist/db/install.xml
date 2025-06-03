@@ -23,5 +23,6 @@
         <KEY NAME="coursefk" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
     </KEYS>
     </TABLE>
+
 </TABLES>
 </XMLDB>

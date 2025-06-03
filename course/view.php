@@ -171,6 +171,7 @@ if ($resetuserallowedediting) {
 if (!isset($USER->editing)) {
     $USER->editing = 0;
 }
+
 if ($PAGE->user_allowed_editing()) {
     if (($edit == 1) && confirm_sesskey()) {
         $USER->editing = 1;
@@ -323,7 +324,13 @@ if ($USER->editing == 1) {
 
 // Course wrapper start.
 echo html_writer::start_tag('div', ['class' => 'course-content']);
-
+$courseisfull = local_mist_is_course_full($COURSE->id);
+if ($courseisfull && !is_enrolled($context, $USER) && !$DB->record_exists('local_mist_waitlist', ['userid' => $USER->id, 'courseid' => $course->id])) {
+    echo '<form method="post" action="'.$CFG->wwwroot.'/local/mist/waitlist/register.php">';
+    echo '<input type="hidden" name="courseid" value="'.$course->id.'">';
+    echo '<button class="btn btn-primary m-10" type="submit">أرغب بالتسجيل</button>';
+    echo '</form>';
+}
 // Make sure that section 0 exists (this function will create one if it is missing).
 course_create_sections_if_missing($course, 0);
 
