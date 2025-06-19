@@ -1,5 +1,5 @@
 <?php
-
+$string['courseuploader'] = 'رافع الدورات';
 $string['pluginname'] = 'رافع الدورات';
 $string['pagetitle'] = 'رفع خطة التدريب';
 $string['pageheading'] = 'رفع خطة التدريب من ملف Excel';

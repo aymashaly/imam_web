@@ -25,10 +25,10 @@ class request_form extends \moodleform {
         $mform->addElement('date_selector', 'date_issued', get_string('date_issued', 'local_mist'));
         $mform->addRule('date_issued', null, 'required');
 
-        $mform->addElement('select', 'courseid', 'Course to skip', self::get_courses_list());
+        $mform->addElement('select', 'courseid', get_string('course','local_mist'), self::get_courses_list());
         $mform->addRule('courseid', null, 'required');
 
-        $mform->addElement('filepicker', 'certificate_file', 'Upload Certificate', null, ['maxbytes' => 10485760, 'accepted_types' => '*']);
+        $mform->addElement('filepicker', 'certificate_file', get_string('upload_certificate','local_mist'), null, ['maxbytes' => 10485760, 'accepted_types' => '*']);
         // $mform->setType('certificate_file', PARAM_INT);
 
         $this->add_action_buttons();

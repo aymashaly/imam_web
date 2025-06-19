@@ -1,6 +1,6 @@
 <?php
 
-$string['pluginname'] = 'رافع الدورات';
+$string['pluginname'] = 'ناقل الدورات';
 $string['pagetitle'] = 'رفع خطة التدريب';
 $string['pageheading'] = 'رفع خطة التدريب من ملف Excel';
 $string['formlegend'] = 'قم برفع ملف Excel يحتوي على بيانات الدورات التدريبية';

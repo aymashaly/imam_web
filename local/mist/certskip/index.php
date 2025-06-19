@@ -14,7 +14,7 @@ $PAGE->set_heading(get_string('viewrequests', 'local_mist'));
 echo $OUTPUT->header();
 echo html_writer::link(
     new moodle_url('/local/mist/index.php'),
-    '&larr; Back to Board'
+    get_string('Back to Board','local_mist')
 );
 echo $OUTPUT->heading(get_string('viewrequests', 'local_mist'));
 
@@ -30,7 +30,7 @@ if ($records) {
             "{$record->certificate_name} ({$record->issuing_body}) - " .
             get_string('status_' . $record->request_status, 'local_mist') .
             '<br>'. 
-            html_writer::link(new moodle_url('/local/mist/certskip/views/view.php', ['id' => $record->id]), 'View', [
+            html_writer::link(new moodle_url('/local/mist/certskip/views/view.php', ['id' => $record->id]), get_string('view','local_mist'), [
                 'class' => 'btn btn-info',
             ])
         );

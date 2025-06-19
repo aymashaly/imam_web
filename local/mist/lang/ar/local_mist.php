@@ -1,0 +1,80 @@
+<?php
+
+$string['pluginname'] = 'MIST المتقدم';
+$string['certskip'] = 'طلبات تخطي الشهادة';
+$string['certificatename'] = 'اسم الشهادة';
+$string['issuingbody'] = 'جهة الإصدار';
+$string['dateissued'] = 'تاريخ الإصدار';
+$string['choosecourse'] = 'اختر المقرر';
+$string['submit'] = 'إرسال';
+$string['status_pending'] = 'قيد الانتظار';
+$string['status_approved'] = 'موافق عليه';
+$string['status_rejected'] = 'مرفوض';
+$string['uploadcert'] = 'رفع الشهادة لطلب التخطي';
+$string['dashboard'] = 'لوحة تحكم MIST';
+$string['viewrequests'] = 'عرض الطلبات';
+$string['submitrequest'] = 'تقديم طلب تخطي الشهادة';
+$string['norequestsfound'] = 'لا توجد طلبات.';
+$string['apply_request'] = 'تقديم طلب تخطي الشهادة';
+$string['requestapproved'] = 'تمت الموافقة على الطلب.';
+$string['requestrefused'] = 'تم رفض الطلب.';
+$string['invalidaction'] = 'إجراء غير صالح.';
+$string['invalidrequestid'] = 'معرف طلب غير صالح.';
+$string['formbuildertitle'] = "منشئ النماذج";
+$string['delete'] = "حذف";
+$string['edit'] = "تعديل";
+$string['copylink'] = "نسخ الرابط";
+$string['viewanswers'] = "عرض الإجابات";
+$string['createform'] = "إنشاء نموذج";
+$string['statics'] = "لوحة الإحصائيات";
+$string['form_builder'] = "منشئ النماذج";
+$string['myrequests'] = "طلباتي";
+$string['my_certskip_requests'] = "طلبات تخطي الشهادات الخاصة بي";
+#form builder
+$string['ID'] = 'المعرف';
+$string['Name'] = 'الاسم';
+$string['Created By'] = 'أنشئ بواسطة';
+$string['Created At'] = 'أنشئ في';
+$string['link'] = 'رابط';
+
+#common
+$string['Back to Board'] = '&larr; العودة إلى اللوحة';
+$string['Back to List'] =  '&larr; العودة إلى القائمة';
+$string['view'] = 'عرض';
+#statics
+$string['statistics'] = 'الإحصائيات';
+$string['ccp'] = 'نسبة إتمام الكورسات';
+$string['recent_enrolments_header'] = 'آخر عمليات التسجيل (آخر 4 أشهر)';
+$string['no_enrolments'] = 'لا توجد عمليات تسجيل في آخر 4 أشهر.';
+$string['total_active_courses'] = 'إجمالي الكورسات النشطة';
+$string['total_archived_courses'] = 'إجمالي الكورسات المؤرشفة';
+$string['total_draft_courses'] = 'إجمالي الكورسات المسودة';
+$string['course_name'] = 'اسم الكورس';
+$string['course_category'] = 'تصنيف الكورس';
+$string['total_sales'] = 'إجمالي المبيعات';
+$string['total_users'] = 'إجمالي المستخدمين';
+$string['completion_percentage'] = 'نسبة الإتمام';
+$string['total_revenue'] = 'إجمالي الإيرادات';
+$string['price'] = 'السعر';
+$string['no_courses_found'] = 'لا توجد كورسات.';
+$string['course_statistics'] = 'إحصائيات الكورس';
+$string['view_invoices'] = 'عرض الفواتير';
+$string['invoice'] = 'فاتورة';
+#certskip
+$string['certskiprequests'] = 'طلبات تخطي الشهادة';
+$string['certskiprequest'] = 'طلب تخطي الشهادة';
+$string['user'] = 'المستخدم';
+$string['course'] = 'المقرر الدراسي';
+$string['status'] = 'الحالة';
+$string['certificate_name'] = 'اسم الشهادة';
+$string['issuing_body'] = 'جهة الإصدار';
+$string['date_issued'] = 'تاريخ الإصدار';
+$string['request_status'] = 'حالة الطلب';
+$string['request_date'] = 'تاريخ الطلب';
+$string['file(s)'] = 'ملف/ملفات';
+$string['upload_certificate'] = 'رفع الشهادة';
+$string['view_files'] = 'عرض الملفات';
+$string['approve'] = 'موافقة';
+$string['Approve this request?'] = 'موافقة على هذا الطلب؟';
+$string['refuse'] = 'رفض';
+$string['Refuse this request?'] = 'رفض هذا الطلب؟';

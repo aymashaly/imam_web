@@ -21,7 +21,13 @@ $total_enrolments = $DB->count_records('user_enrolments');
 
 // Render the page.
 echo $OUTPUT->header();
-echo html_writer::tag('h2', 'Statistics');
+echo html_writer::link(
+    new moodle_url('/local/mist/index.php'),
+    get_string('Back to Board','local_mist')
+);
+
+
+echo html_writer::tag('h2', get_string('statistics', 'local_mist'));
 
 // Get all courses with their completion percentage.
 $courses = $DB->get_records('course', null, 'fullname ASC', '*');
@@ -101,7 +107,7 @@ foreach ($courses as &$course) {
 ?>
 <div class="row">
     <div class="col-6 card">
-        <h4>Courses Completion Percentage</h4>
+        <h4><?=get_string('ccp','local_mist')?></h4>
         <?php foreach ($courses as $course) { ?>
             <div class="row">
                 <span>
@@ -114,7 +120,7 @@ foreach ($courses as &$course) {
         ?>
     </div>
     <div class="col-6">
-        <h4>Recent Enrolments (Last 4 Months)</h4>
+        <h4><?=get_string('recent_enrolments_header','local_mist')?></h4>
         <?php
         $months = [];
         $enrolments_by_month = [];
@@ -156,7 +162,9 @@ foreach ($courses as &$course) {
                 </div>';
             } ?>
             <?php } else { ?>
-            <p>No enrolments found for the last 4 months.</p>
+            <p>
+                <?=get_string('no_enrolments','local_mist')?>
+            </p>
             <?php } ?>
         </div>
     </div>
@@ -170,7 +178,7 @@ foreach ($courses as &$course) {
                     <div class="card-body">
                         <?php
                         $archived_courses = $DB->count_records('course', ['visible' => 0]);
-                        echo html_writer::tag('h4', 'Total Archived Courses: ' . $archived_courses);
+                        echo html_writer::tag('h4', get_string('total_archived_courses','local_mist').': ' . $archived_courses);
                         ?>
                     </div>
                 </div>
@@ -180,7 +188,7 @@ foreach ($courses as &$course) {
                     <div class="card-body">
                         <?php
                         $draft_courses = $DB->count_records('course', ['visible' => 2]);
-                        echo html_writer::tag('h4', 'Total Draft Courses: ' . $draft_courses);
+                        echo html_writer::tag('h4', get_string('total_draft_courses','local_mist').': ' . $draft_courses);
                         ?>
                     </div>
                 </div>
@@ -190,7 +198,7 @@ foreach ($courses as &$course) {
                     <div class="card-body">
                         <?php
                         $active_courses = $DB->count_records('course', ['visible' => 1]);
-                        echo html_writer::tag('h4', 'Total Active Courses: ' . $active_courses);
+                        echo html_writer::tag('h4', get_string('total_active_courses','local_mist').': ' . $active_courses);
                         ?>
                     </div>
                 </div>
@@ -202,13 +210,13 @@ foreach ($courses as &$course) {
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Course Name</th>
-                        <th>Course Category</th>
-                        <th>Total Sales</th>
-                        <th>Total Users</th>
-                        <th>Completion Percentage</th>
-                        <th>Total Revenue</th>
-                        <th>Price</th>
+                        <th><?=get_string('course_name','local_mist')?></th>
+                        <th><?=get_string('course_category','local_mist')?></th>
+                        <th><?=get_string('total_sales','local_mist')?></th>
+                        <th><?=get_string('total_users','local_mist')?></th>
+                        <th><?=get_string('completion_percentage','local_mist')?></th>
+                        <th><?=get_string('total_revenue','local_mist')?></th>
+                        <th><?=get_string('price','local_mist')?></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -223,7 +231,9 @@ foreach ($courses as &$course) {
                             <td><?=$course->total_revenue?></td>
                             <td><?=$course->price?></td>
                             <td>
-                                <a href="<?php echo new moodle_url('/local/mist/invoices.php', ['courseid' => $course->id]); ?>" class="btn btn-primary">View Invoices</a>
+                                <a href="<?php echo new moodle_url('/local/mist/invoices.php', ['courseid' => $course->id]); ?>" class="btn btn-primary">
+                                    <?=get_string('view_invoices','local_mist')?>
+                                </a>
                             </td>
                         </tr>
                     <?php } ?>

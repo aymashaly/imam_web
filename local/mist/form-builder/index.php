@@ -15,7 +15,7 @@ $forms = $DB->get_records('formbuilder_forms');
 echo $OUTPUT->header();
 echo html_writer::link(
     new moodle_url('/local/mist/index.php'),
-    '&larr; Back to Board'
+    get_string('Back to Board','local_mist')
 );
 echo html_writer::tag('h2', get_string('formbuildertitle', 'local_mist'));
 
@@ -26,7 +26,7 @@ echo $OUTPUT->single_button($createurl, get_string('createform', 'local_mist'), 
 // Display forms table
 if (!empty($forms)) {
     $table = new html_table();
-    $table->head = ['ID', 'Name', 'Created By', 'Created At','link'];
+    $table->head = [get_string('ID','local_mist'), get_string('Name','local_mist'), get_string('Created By','local_mist'), get_string('Created At','local_mist'),get_string('link','local_mist')];
     foreach ($forms as $form) {
         $row = [];
         $row[] = $form->id;

@@ -45,6 +45,10 @@ if ($mform->is_cancelled()) {
 }
 
 echo $OUTPUT->header();
+echo html_writer::link(
+    new moodle_url('/local/mist/index.php'),
+    get_string('Back to Board','local_mist')
+);
 echo $OUTPUT->heading(get_string('submitrequest', 'local_mist'));
 $mform->display();
 echo $OUTPUT->footer();
