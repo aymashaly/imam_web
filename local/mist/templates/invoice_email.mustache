@@ -1,0 +1,11 @@
+<h2>Invoice Notification</h2>
+<p>Dear {{user.firstname}},</p>
+<p>Your invoice <strong>{{invoice.reference}}</strong> from {{company.name}} is now available.</p>
+<p><strong>Amount Due:</strong> {{currency}}{{invoice.total}}<br>
+<strong>Due Date:</strong> {{due_date}}</p>
+<p>Please find your invoice attached to this email.</p>
+<h3>Payment Instructions</h3>
+<div>{{{payment_instructions}}}</div>
+<p>If you have any questions about this invoice, please contact our support team.</p>
+<p>Best regards,<br>
+{{company.name}}</p>

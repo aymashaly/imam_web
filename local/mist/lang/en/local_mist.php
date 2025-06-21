@@ -1,5 +1,11 @@
 <?php
-
+$string['settings'] = 'Settings';
+$string['companyinfo'] = 'Company Information';
+$string['invoice_companyname_desc'] = 'The name of your company as it will appear on invoices.';
+$string['invoicesettings'] = 'Invoice Settings';
+$string['automationsettings'] = 'Automation Settings';
+$string['paymentsettings'] = 'Payment Settings';
+$string['feemanagement'] = 'Fee Management';
 $string['pluginname'] = 'MIST Advanced';
 $string['certskip'] = 'Certificate Skip Requests';
 $string['certificatename'] = 'Certificate Name';
@@ -77,5 +83,90 @@ $string['approve'] = 'Approve';
 $string['refuse'] = 'Reject';
 $string['Approve this request?'] =  'Approve this request?';
 $string['Refuse this request?'] =  'Refuse this request?';
+# Invoicing strings
+$string['invoicing'] = 'Invoicing';
+$string['invoicesettings'] = 'Invoice Settings';
+$string['generateinvoicestask'] = 'Generate Invoices';
+$string['invoicesubject'] = 'Invoice {$a}';
+$string['coursetransferfee'] = 'Course Transfer Fee: {$a}';
+$string['invoice_companyname'] = 'Company Name';
+$string['invoice_companydetails'] = 'Company Details';
+$string['invoice_companydetails_desc'] = 'Details about your company, such as address and contact information.';
+$string['invoice_currency'] = 'Currency';
+$string['invoice_taxrate'] = 'Tax Rate (%)';
+$string['invoice_duedays'] = 'Payment Due Days';
+$string['invoice_enablecron'] = 'Enable Auto-generation';
+$string['invoice_autosend'] = 'Auto-send Invoices';
+$string['invoice_paymentinstructions'] = 'Payment Instructions';
+$string['invoice_logo'] = 'Company Logo URL';
+$string['feemanagement'] = 'Fee Management';
+$string['addfee'] = 'Add Fee';
+$string['editfee'] = 'Edit Fee';
+$string['deletefee'] = 'Delete Fee';
+$string['feetype'] = 'Fee Type';
+$string['feetypes'] = [
+    'enrollment' => 'Course Enrollment',
+    'transfer' => 'Course Transfer',
+    'extra' => 'Extra Fee',
+    'other' => 'Other'
+];
+$string['managemist'] ='Manage MIST';
+$string['taxable'] = 'Taxable';
+$string['description'] = 'Description';
+$string['amount'] = 'Amount';
+$string['course'] = 'Course';
+$string['allcourses'] = 'All Courses';
+$string['invoice_currency_desc'] = 'The currency used for invoices. This will be used for all monetary values in the system.';
+$string['invoice_taxrate_desc'] = 'The tax rate applied to taxable fees. This will be used to calculate the tax on fees marked as taxable.';
+$string['invoice_duedays_desc'] = 'Number of days after invoice creation when payment is';
+$string['invoice_enablecron_desc'] = 'Enable automatic invoice generation for fees. If enabled, invoices will be generated automatically based on the configured schedule.';
+$string['invoice_autosend_desc'] = 'Automatically send invoices to users via email after generation';
+$string['invoice_paymentinstructions_desc'] = 'Instructions for users on how to make payments. This will be included in the invoice email.';
+$string['defaultpaymentinstructions'] = 'Please make your payment to the following account:\nBank';
+#----
+// ... existing strings ...
 
-
+// New strings for invoices
+$string['invoices'] = 'Invoices';
+$string['invoiceref'] = 'Invoice Reference';
+$string['datecreated'] = 'Date Created';
+$string['duedate'] = 'Due Date';
+$string['createnewinvoice'] = 'Create New Invoice';
+$string['downloadpdf'] = 'Download PDF';
+$string['sendemail'] = 'Send Email';
+$string['cancelinvoice'] = 'Cancel Invoice';
+$string['markpaid'] = 'Mark as Paid';
+$string['view'] = 'View';
+$string['fromdate'] = 'From Date';
+$string['todate'] = 'To Date';
+$string['filter'] = 'Filter';
+$string['reset'] = 'Reset';
+$string['allstatuses'] = 'All Statuses';
+$string['status_pending'] = 'Pending';
+$string['status_paid'] = 'Paid';
+$string['status_overdue'] = 'Overdue';
+$string['status_cancelled'] = 'Cancelled';
+$string['downloadexcel'] = 'Download as Excel';
+$string['downloadcsv'] = 'Download as CSV';
+$string['downloadas'] = 'Download as';
+$string['actions'] = 'Actions';
+$string['amount'] = 'Amount';
+$string['tax'] = 'Tax';
+$string['total'] = 'Total';
+$string['user'] = 'User';
+$string['invoice_actions'] = 'Invoice Actions';
+$string['viewinvoice'] = 'View Invoice';
+$string['editinvoice'] = 'Edit Invoice';
+$string['deleteinvoice'] = 'Delete Invoice';
+$string['confirmdelete'] = 'Are you sure you want to delete this invoice?';
+$string['invoicedeleted'] = 'Invoice deleted successfully';
+$string['invoiceupdated'] = 'Invoice updated successfully';
+$string['searchuser'] = 'Search by name or email';
+$string['applyfilter'] = 'Apply Filter';
+$string['clearfilter'] = 'Clear Filter';
+$string['fromdatetodateerror'] = 'From date cannot be after to date';
+$string['allstatuses'] = 'All Statuses';
+$string['status_pending'] = 'Pending';
+$string['status_paid'] = 'Paid';
+$string['status_overdue'] = 'Overdue';
+$string['status_cancelled'] = 'Cancelled';

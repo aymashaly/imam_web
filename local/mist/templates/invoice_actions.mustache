@@ -1,0 +1,8 @@
+<div class="invoice-actions">
+    {{#actions}}
+    <a href="{{url}}" class="btn btn-sm btn-outline-secondary mr-1" title="{{title}}" {{#action}}data-action="{{.}}"{{/action}}>
+        <span class="{{icon}}"></span>
+        {{#text}}{{.}}{{/text}}
+    </a>
+    {{/actions}}
+</div>
