@@ -43,7 +43,6 @@
                 <p>{{user.firstname}} {{user.lastname}}<br>
                 {{user.email}}</p>
             </div>
-            
             <table>
                 <thead>
                     <tr>
@@ -55,22 +54,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{#items}}
-                    <tr>
-                        <td>{{description}}</td>
-                        <td>{{currency}} {{amount}}</td>
-                        <td>{{currency}} {{tax}}</td>
-                        <td>{{quantity}}</td>
-                        <td>{{currency}}{{#multiply}}{{amount}},{{tax}},{{quantity}}{{/multiply}}</td>
-                    </tr>
-                    {{/items}}
+                    {{{items_html}}}
                     <tr class="total-row">
                         <td colspan="4" style="text-align: right;">Subtotal:</td>
                         <td>{{currency}}{{invoice.amount}}</td>
                     </tr>
                     <tr class="total-row">
                         <td colspan="4" style="text-align: right;">Tax:</td>
-                        <td>{{currency}}{{invoice.tax}}</td>
+                        <td>{{currency}}{{total_tax}}</td>
                     </tr>
                     <tr class="total-row">
                         <td colspan="4" style="text-align: right;">Total:</td>

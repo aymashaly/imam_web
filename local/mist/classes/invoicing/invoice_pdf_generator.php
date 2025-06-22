@@ -2,7 +2,7 @@
 require_once(__DIR__.'/../../../../config.php');
 require_once($CFG->libdir.'/pdflib.php');
 require_once(__DIR__.'/invoice_generator.php');
-
+use html_writer;
 // Require login and capabilities
 require_login();
 $context = context_system::instance();
@@ -59,11 +59,20 @@ $data['items'] = $invoice->items;
 // die;
 // Add totals calculation
 $data['subtotal'] = 0;
-$data['tax'] = 0;
+$data['total_tax'] = 0;
+$items_html = '';
 foreach ($invoice->items as $item) {
     $data['subtotal'] += $item->amount * $item->quantity;
-    $data['tax'] += $item->tax * $item->quantity;
+    $data['total_tax'] += $item->tax * $item->quantity;
+    $items_html .= html_writer::tag('tr', 
+        html_writer::tag('td', $item->description) .
+        html_writer::tag('td', format_float($item->amount, 2)) .
+        html_writer::tag('td', format_float($item->tax, 2)) .
+        html_writer::tag('td', $item->quantity) .
+        html_writer::tag('td', format_float($item->amount * $item->quantity + $item->tax * $item->quantity, 2))
+    );
 }
+$data['items_html'] = $items_html;
 $data['total'] = $data['subtotal'] + $data['tax'];
 
 // Render HTML content
