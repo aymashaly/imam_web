@@ -5,28 +5,30 @@ defined('MOODLE_INTERNAL') || die();
 
 class observer {
     public static function user_enrolled(\core\event\user_enrolment_created $event) {
-        global $DB;
-        $enrolment = $event->get_record_snapshot('user_enrolments', $event->objectid);
-        $courseid = $event->courseid;
-        $userid = $event->relateduserid;
-        
-        $fees = fee_manager::get_fees($courseid, 'enrollment');
-        if (empty($fees)) return;
-        
-        $items = [];
-        foreach ($fees as $fee) {
-            $items[] = (object)[
-                'itemtype' => 'enrollment',
-                'itemid' => $enrolment->id,
-                'description' => $fee->description,
-                'amount' => $fee->amount,
-                'tax' => $fee->taxable ? fee_manager::calculate_tax($fee->amount) : 0,
-                'quantity' => 1
-            ];
-        }
-        
-        invoice_generator::create_invoice($userid, $items);
-    }
+    global $DB;
+
+    // Get basic information
+    $enrolment = $event->get_record_snapshot('user_enrolments', $event->objectid);
+    $courseid = $event->courseid;
+    $userid = $event->relateduserid;
+
+    $course = $DB->get_record('course', ['id' => $courseid], 'id, fullname, cost');
+
+    // Prepare single invoice item for the course
+    $items = [
+        (object)[
+            'itemtype' => 'enrolment',
+            'itemid' => $course->id,
+            'description' => $course->fullname,
+            'amount' => (float)$course->cost,
+            'tax' => fee_manager::calculate_tax($course->cost), // If applicable
+            'quantity' => 1
+        ]
+    ];
+
+    // Generate invoice
+    invoice_generator::create_invoice($userid, $items);
+}
 
     public static function course_transfer(\local_mist\event\course_transfer_created $event) {
         $data = $event->get_data();
