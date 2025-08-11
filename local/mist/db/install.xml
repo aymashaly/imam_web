@@ -27,9 +27,9 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true"/>
-        <FIELD NAME="amount" TYPE="number" LENGTH="10,2" NOTNULL="true"/>
-        <FIELD NAME="tax" TYPE="number" LENGTH="10,2" NOTNULL="true" DEFAULT="0.00"/>
-        <FIELD NAME="total" TYPE="number" LENGTH="10,2" NOTNULL="true"/>
+        <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true"/>
+        <FIELD NAME="tax" TYPE="number" LENGTH="10" NOTNULL="true" DEFAULT="0.00"/>
+        <FIELD NAME="total" TYPE="number" LENGTH="10" NOTNULL="true"/>
         <FIELD NAME="status" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="pending"/>
         <FIELD NAME="reference" TYPE="char" LENGTH="40" NOTNULL="true"/>
         <FIELD NAME="created" TYPE="int" LENGTH="10" NOTNULL="true"/>
@@ -50,8 +50,8 @@
         <FIELD NAME="itemtype" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="enrollment"/>
         <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true"/>
         <FIELD NAME="description" TYPE="char" LENGTH="255" NOTNULL="true"/>
-        <FIELD NAME="amount" TYPE="number" LENGTH="10,2" NOTNULL="true"/>
-        <FIELD NAME="tax" TYPE="number" LENGTH="10,2" NOTNULL="true" DEFAULT="0.00"/>
+        <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true"/>
+        <FIELD NAME="tax" TYPE="number" LENGTH="10" NOTNULL="true" DEFAULT="0.00"/>
         <FIELD NAME="quantity" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="1"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
       </FIELDS>
@@ -66,7 +66,7 @@
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
         <FIELD NAME="feetype" TYPE="char" LENGTH="20" NOTNULL="true" DEFAULT="enrollment"/>
-        <FIELD NAME="amount" TYPE="number" LENGTH="10,2" NOTNULL="true"/>
+        <FIELD NAME="amount" TYPE="number" LENGTH="10" NOTNULL="true"/>
         <FIELD NAME="description" TYPE="char" LENGTH="255" NOTNULL="true"/>
         <FIELD NAME="taxable" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1"/>
         <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true"/>
