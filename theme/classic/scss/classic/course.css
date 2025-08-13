@@ -1,0 +1,40 @@
+/*
+ * Course page styles (specific for Classic theme).
+ */
+.course-content .single-section .section-navigation {
+  display: block;
+  padding: 0.5em;
+  margin-bottom: -0.5em;
+}
+.course-content .single-section .section-navigation .title {
+  font-weight: bold;
+  font-size: 108%;
+  clear: both;
+}
+.course-content .single-section .section-navigation .mdl-left {
+  font-weight: normal;
+  float: left;
+  margin-right: 1em;
+}
+.course-content .single-section .section-navigation .mdl-left .larrow {
+  margin-right: 0.1em;
+}
+.course-content .single-section .section-navigation .mdl-right {
+  font-weight: normal;
+  float: right;
+  margin-left: 1em;
+}
+.course-content .single-section .section-navigation .mdl-right .rarrow {
+  margin-left: 0.1em;
+}
+.course-content .single-section .section-navigation .mdl-bottom {
+  margin-top: 0;
+}
+
+.activity-navigation .row {
+  align-items: center;
+}
+.activity-navigation #prev-activity-link,
+.activity-navigation #next-activity-link {
+  white-space: pre-wrap;
+}/*# sourceMappingURL=course.css.map */

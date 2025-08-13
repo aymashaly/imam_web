@@ -1,0 +1,36 @@
+    // Function to update current language display
+    function updateCurrentLanguageDisplay() {
+        const currentLang = document.documentElement.lang || 'ar';
+        
+        // Update the language selector
+        if (languageSelector) {
+            languageSelector.value = currentLang;
+            // Re-enable the selector if it was disabled
+            languageSelector.disabled = false;
+        }
+        
+        // Update navbar direction
+        const navbarHeader = document.getElementById('navbar-header');
+        if (navbarHeader) {
+            if (currentLang === 'ar') {
+                navbarHeader.style.direction = 'rtl';
+                navbarHeader.classList.remove('ltr');
+            } else {
+                navbarHeader.style.direction = 'ltr';
+                navbarHeader.classList.add('ltr');
+            }
+        }
+        
+        console.log('Language updated to:', currentLang);
+        
+        // Check if this matches what we expect
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        if (urlLang && urlLang !== currentLang) {
+            console.log('URL language parameter:', urlLang, 'but page language is:', currentLang);
+            // Force a page reload if there's a mismatch
+            setTimeout(() => {
+                window.location.reload();
+            }, 100);
+        }
+    }

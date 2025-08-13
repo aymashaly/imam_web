@@ -1,4 +1,4 @@
-
+image.pngimage.pngimage.png
 {{#top_header}}
     <div class="top-header-area bg-color-0f6c76">
         <div class="container-fluid">
@@ -21,191 +21,874 @@
     </div>
  {{/top_header}}
 
-<div class="navbar-area">
-    <div class="mobile-responsive-nav">
-        <div class="container">
-            <div class="mobile-responsive-menu">
-                {{#logo_visibility}}
-                    <div class="logo">
-                        <a href="{{{ config.wwwroot }}}/">
-                            {{#mobile_logo}}
-                                <img src="{{mobile_logo}}" alt="{{sitename}}"  {{#mobile_logo_styles}} style="{{{mobile_logo_styles}}}" {{/mobile_logo_styles}}>
-                            {{/mobile_logo}}
-
-                            {{^ mobile_logo }}
-                                <h2 {{#mobile_logo_styles}} style="{{{mobile_logo_styles}}}" {{/mobile_logo_styles}}>{{sitename}}</h2>
-                            {{/mobile_logo}}
-                        </a>
+<header class="HEADER-0" id="navbar-header">
+    <div class="DIV-0">
+      <div class="DIV-1"></div>
+      <div class="DIV-2"></div>
+      <div class="DIV-3"></div>
+      <div class="DIV-4"></div>
                     </div>
-                {{/logo_visibility}}
-            </div>
-        </div>
-    </div>
-
-    <div class="desktop-nav">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light">
+    <div class="DIV-5">
+      <div class="DIV-6">
+        <div class="DIV-7">
                 {{#logo_visibility}}
-                    <a class="navbar-brand" href="{{{ config.wwwroot }}}/">
                         {{#main_logo}}
-                            <img src="{{main_logo}}" alt="{{sitename}}"  {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>
+              <img src="{{main_logo}}" alt="{{sitename}}" class="svg-0" {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>
                         {{/main_logo}}
-
                         {{^ main_logo }}
-                            <h2  {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>{{sitename}}</h2>
+              <svg viewBox="0 0 53 94" class="svg-0">
+                <path
+                  d="M45.0767 28.3346C46.5781 29.1421 48.1069 30.4833 49.2466 31.7789C52.9313 35.9623 53.5538 41.2496 52.6109 46.6237C51.2697 54.2468 45.4841 58.5852 38.0094 59.5159L0.997794 59.452C0.60415 59.2467 0.343247 58.9228 0.18762 58.5077C0.00910723 39.694 0.164734 20.8484 0.10523 2.02558C0.215084 0.821207 1.06188 0.150593 2.24281 0.114097C11.9832 0.396941 21.925 -0.2463 31.6425 0.114097C37.5975 0.333073 41.6163 1.85222 45.5665 6.35035C50.4046 11.8567 50.8578 20.6978 46.4316 26.5737C46.2485 26.8155 44.9486 28.175 45.0721 28.3346H45.0767ZM31.4548 6.92972C23.5636 6.99815 15.6084 6.95253 7.72635 7.1122C6.84752 7.4726 6.49965 8.34394 6.46761 9.24722V51.0351C6.5088 51.9749 7.04434 52.8143 8.06049 52.8417L37.7714 52.8234C47.8231 51.1264 49.7272 39.0508 41.0533 33.8273C40.4125 33.4395 39.1766 32.6913 38.4946 33.0882C33.1621 35.8984 28.0082 39.621 22.6711 42.3536C20.4328 43.4987 18.1808 42.7369 17.659 40.2049V17.6687C18.0114 15.5291 20.3184 14.197 22.3415 15.082C27.2895 17.8466 31.9949 21.0446 36.9292 23.8274C37.7394 24.2836 38.9844 25.3602 39.7625 24.6166C45.0859 19.5437 42.9071 9.58025 35.8398 7.4133C34.3019 6.93885 33.0477 6.91148 31.4548 6.92516V6.92972ZM24.4837 24.8629C24.3601 24.9861 24.3601 25.2644 24.3418 25.4332C24.1862 27.2626 24.1724 30.8392 24.3418 32.6594C24.4516 33.8592 25.0101 33.4213 25.7378 33.0563C27.7518 32.0435 29.6926 30.6247 31.734 29.6302C32.0178 29.466 32.2421 29.1968 32.1231 28.8456C31.9949 28.4669 25.9621 25.3921 25.1977 24.8082C25.0101 24.6896 24.6439 24.7078 24.4882 24.8629H24.4837Z"
+                  class="path-0"
+                ></path>
+                <path
+                  d="M24.4837 24.8629C24.6394 24.7077 25.0055 24.6941 25.1932 24.8081C25.9576 25.392 31.9904 28.4668 32.1186 28.8455C32.2376 29.1967 32.0179 29.4659 31.7295 29.6301C29.6881 30.6292 27.7473 32.048 25.7333 33.0562C25.0055 33.4212 24.4471 33.8591 24.3373 32.6593C24.1679 30.8391 24.1816 27.2625 24.3373 25.4331C24.351 25.2643 24.3556 24.986 24.4792 24.8629H24.4837Z"
+                  fill="#61EDFC"
+                  class="path-1"
+                ></path>
+              </svg>
                         {{/main_logo}}
-                    </a>
                 {{/logo_visibility}}
-                
-                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                    <div class="category d-none d-lg-block">
-                        <a href="#" data-toggle="modal" data-target="#exampleModal">
-                            <img src="{{{ config.wwwroot }}}/theme/edma/pix/category.svg">
-                        </a>
+          <div class="DIV-8"><div class="DIV-9"></div></div>
                     </div>
 
-                    {{#header_search_bar}}
-                        <div class="others-options pe-0">
-                            {{{edma_globalsearch_navbar}}}
-                        </div>
-                    {{/header_search_bar}}
-
-                    <ul id="menu-primary-menu" class="navbar-nav ms-auto">
-                        {{{ output.custom_menu }}}
+        <!-- Custom Menu Integration -->
+        <nav class="NAV-0">
+          <!-- Always show navigation items -->
+          <ul class="nav-items">
+            <li><a href="{{{ config.wwwroot }}}/" class="nav-link">الرئيسية</a></li>
+            <li><a href="{{{ config.wwwroot }}}/course/" class="nav-link">الدورات</a></li>
+            <li><a href="{{{ config.wwwroot }}}/about/" class="nav-link">من نحن</a></li>
+            <li><a href="{{{ config.wwwroot }}}/contact/" class="nav-link">اتصل بنا</a></li>
                     </ul>
 
-                    {{output.if_edma_guest_user}}
-
-                    {{^ isloggedin}}
-                        {{#header_btn_text}}
-                            <div class="others-options">
-                                <ul class="d-flex align-items-center">
-                                    {{#header_left_btn_text}}
-                                        <li>
-                                            {{#header_left_btn_url}} <a href="{{header_left_btn_url}}" class="read-more"> {{/header_left_btn_url}}
-                                            {{^ header_left_btn_url }} <a href="{{ login_url }}" class="read-more"> {{/header_left_btn_url}}
-                                                {{header_left_btn_text}}
-                                            </a>
-                                        </li>
-                                    {{/header_left_btn_text}}
-
-                                    <li>
-                                        {{#header_btn_url}} <a href="{{header_btn_url}}" class="default-btn"> {{/header_btn_url}}
-                                        {{^ header_btn_url }} <a href="{{ signup_url }}" class="default-btn"> {{/header_btn_url}}
-                                            <i class="{{header_btn_icon}}"></i>
-                                            {{header_btn_text}}<span></span>
-                                        </a>
-                                    </li>
-                                </ul>
+          <!-- Show custom menu if available (as additional items) - but filter out language content -->
+          {{#output.custom_menu}}
+            <div class="custom-menu-additional" id="custom-menu-filtered">
+              {{{ output.custom_menu }}}
+            </div>
+          {{/output.custom_menu}}
+        </nav>
+        
+        <div class="DIV-10">
+          <!-- Search Icon -->
+         
+          
+          <!-- Edit Switch Integration -->
+          {{{ output.edit_switch }}}
+          
+          <!-- Moodle User Menu Integration -->
+           <div class="search-icon" id="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="svg-1"
+            >
+              <circle cx="11" cy="11" r="8" class="circle-0"></circle>
+              <path d="m21 21-4.3-4.3" class="path-2"></path>
+            </svg>
+          </div>
+          <div class="DIV-11">
+            {{#usermenu}}
+              <div class="custom-user-menu">
+                {{> core/user_menu }}
+              </div>
+            {{/usermenu}}
+            {{^usermenu}}
+              <!-- Fallback for when usermenu is not available -->
+              <div class="DIV-12" id="user-menu-trigger">
+                <div class="DIV-13">
+                  {{#isloggedin}}
+                    {{#userpicture}}
+                      <img
+                        src="{{userpicture}}"
+                        alt="Profile"
+                        class="IMG-0"
+                      />
+                    {{/userpicture}}
+                    {{^userpicture}}
+                      <div style="width: 100%; height: 100%; background-color: rgb(16, 82, 162); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem;">
+                        {{#userfullname}}
+                          {{userfullname}}
+                        {{/userfullname}}
+                        {{^userfullname}}
+                          <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
+                        {{/userfullname}}
                             </div>
-                        {{/header_btn_text}}
+                    {{/userpicture}}
                     {{/isloggedin}}
-                    
-                    {{#isloggedin}}
-                        {{> theme_edma/edma_navbar_user }}
+                  {{^isloggedin}}
+                    <div style="width: 100%; height: 100%; background-color: rgb(16, 82, 162); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem;">
+                      AU
+                    </div>
                     {{/isloggedin}}
                 </div>
-            </nav>
+                <span class="SPAN-0">
+                  {{#isloggedin}}
+                    {{#userfullname}}
+                      {{userfullname}}
+                    {{/userfullname}}
+                    {{^userfullname}}
+                      <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
+                    {{/userfullname}}
+                  {{/isloggedin}}
+                  {{^isloggedin}}
+                    <span data-ar="معلم" data-en="Teacher">Teacher</span>
+                  {{/isloggedin}}
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="svg-2"
+                >
+                  <path d="m6 9 6 6 6-6" class="path-3"></path>
+                </svg>
         </div>
+            {{/usermenu}}
     </div>
 
-    <div class="others-option-for-responsive">
-        <div class="container">
-            <div class="dot-menu">
-                <div class="inner">
-                    <div class="circle circle-one"></div>
-                    <div class="circle circle-two"></div>
-                    <div class="circle circle-three"></div>
+          <!-- Moodle Language Menu Integration -->
+          <div class="DIV-14">
+            <div class="custom-language-menu">
+              <div class="langmenu">
+                <div class="single_select">
+                  <select id="language-selector" onchange="changeLanguage(this.value)">
+                    <option value="ar" {{#lang_ar}}selected{{/lang_ar}}>العربية</option>
+                    <option value="en" {{#lang_en}}selected{{/lang_en}}>English</option>
+                  </select>
+                </div>
+              </div>
                 </div>
             </div>
             
-            <div class="container">
-                <div class="option-inner">
-                    <div class="others-options justify-content-center">
-                        {{#isloggedin}}
-                            {{> theme_edma/edma_navbar_user }}
-                        {{/isloggedin}}
-
-                        <ul>
-                            {{#header_search_bar}}
-                                <li>
-                                    {{{edma_globalsearch_navbar}}}
-                                </li>
-                            {{/header_search_bar}}
-                            <li>
-                                <div class="category">
-                                    <a href="#" data-toggle="modal" data-target="#exampleModal">
-                                        <img src="{{{ config.wwwroot }}}/theme/edma/pix/category.svg">
-                                    </a>
-                                </div>
-                            </li>
-                            {{output.if_edma_guest_user}}
-
-                            {{^ isloggedin}}
+          <!-- Hidden form for language switching -->
+          <form id="language-form" method="post" action="{{{ config.wwwroot }}}/theme/edma/langswitch.php" style="display: none;">
+            <input type="hidden" name="lang" id="lang-input" value="">
+            <input type="hidden" name="returnurl" id="returnurl-input" value="">
+          </form>
+          
+          <!-- Login/Signup Buttons for Guests -->
+          {{^isloggedin}}
                                 {{#header_btn_text}}
+              <div class="auth-buttons">
                                     {{#header_left_btn_text}}
-                                        <li>
-                                            {{#header_left_btn_url}} <a href="{{header_left_btn_url}}" class="read-more"> {{/header_left_btn_url}}
-                                            {{^ header_left_btn_url }} <a href="{{ login_url }}" class="read-more"> {{/header_left_btn_url}}
+                  <a href="{{#header_left_btn_url}}{{header_left_btn_url}}{{/header_left_btn_url}}{{^header_left_btn_url}}{{login_url}}{{/header_left_btn_url}}" class="login-btn">
                                                 {{header_left_btn_text}}
                                             </a>
-                                        </li>
                                     {{/header_left_btn_text}}
 
-                                    <li>
-                                        {{#header_btn_url}} <a href="{{header_btn_url}}" class="default-btn"> {{/header_btn_url}}
-                                        {{^ header_btn_url }} <a href="{{ signup_url }}" class="default-btn"> {{/header_btn_url}}
+                <a href="{{#header_btn_url}}{{header_btn_url}}{{/header_btn_url}}{{^header_btn_url}}{{signup_url}}{{/header_btn_url}}" class="signup-btn">
                                             <i class="{{header_btn_icon}}"></i>
-                                            {{header_btn_text}}<span></span>
+                  {{header_btn_text}}
                                         </a>
-                                    </li>
+              </div>
                                 {{/header_btn_text}}
                             {{/isloggedin}}
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+  </header>
+  
+  <!-- Hidden Moodle Menus - Will be triggered by our custom buttons -->
+  <div style="display: none;">
+    {{#usermenu}}
+      {{{ output.user_menu }}}
+    {{/usermenu}}
 </div>
 
-<div class="modal fade offcanvas-area" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header offcanvas-header">
-                <h5 class="modal-title offcanvas-title" id="exampleModalLabel">
-                    {{#logo_visibility}}
-                        <a class="navbar-brand" href="{{{ config.wwwroot }}}/">
-                            {{#main_logo}}
-                                <img src="{{main_logo}}" alt="{{sitename}}"  {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>
-                            {{/main_logo}}
+  <style>
+  .HEADER-0 {
+        color: rgb(2, 8, 23);direction: rtl;background: transparent;position: fixed;top: 0px;z-index: 50;width: 100%;box-sizing: border-box;
+        
+  }
+  
+  .HEADER-0.ltr {
+        direction: ltr;
+  }
+  
+  .DIV-0 {
+        position: absolute;inset: 0px;box-sizing: border-box;
+        
+  }
+  
+  .DIV-1 {
+        position: absolute;inset: 0px;background: rgba(255, 255, 255, 0.81);border-radius: 0 0 16px 16px;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);border: 1px solid rgba(255, 255, 255, 0.3);box-sizing: border-box;
+        
+  }
+  
+  .DIV-2 {
+        position: absolute;inset: 0px;box-sizing: border-box;
+        
+  }
+  
+  .DIV-3 {
+        position: absolute;inset: 0px;box-sizing: border-box;
+        
+  }
+  
+  .DIV-4 {
+        position: absolute;inset: 0px;box-sizing: border-box;
+        
+  }
+  
+  .DIV-5 {
+        width: 100%;margin-right: auto;margin-left: auto;padding: 1.25rem 2.5rem;position: relative;z-index: 10;box-sizing: border-box;
+        max-width: none;
+        @media (min-width: 1400px) {
+          max-width: 1400px;
+          }
+        @media (max-width: 768px) {
+          padding: 1rem 1.5rem;
+        }
+        
+  }
+  
+  .DIV-6 {
+        display: flex;align-items: center;justify-content: space-between;box-sizing: border-box;
+        gap: 3rem;
+        min-width: 0;
+        width: 100%;
+        
+  }
+  
+  .DIV-7 {
+        display: flex;align-items: center;gap: 2rem;box-sizing: border-box;
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        
+  }
+  
+  .svg-0 {
+        height: 4rem;width: 2.5rem;fill: currentcolor;color: rgb(16, 82, 162);display: block;vertical-align: middle;box-sizing: border-box;
+        
+  }
+  
+  .path-0 {
+        box-sizing: border-box;
+        
+  }
+  
+  .path-1 {
+        box-sizing: border-box;
+        
+  }
+  
+  .DIV-8 {
+        display: flex;align-items: center;gap: 1rem;box-sizing: border-box;
+        
+  }
+  
+  .DIV-9 {
+        text-align: right;box-sizing: border-box;
+        
+  }
+  
+  .NAV-0 {
+        display: flex;align-items: center;gap: 2.5rem;box-sizing: border-box;
+        margin: 0 3rem;
+        flex: 1;
+        justify-content: center;
+        position: relative;
+        z-index: 20;
+        flex-wrap: nowrap;
+        overflow: visible;
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+        @media (max-width: 1024px) {
+          gap: 2rem;
+          margin: 0 2rem;
+        }
+        @media (max-width: 768px) {
+          gap: 1.5rem;
+          margin: 0 1.5rem;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          overflow: visible;
+        }
+        @media (max-width: 640px) {
+          gap: 1rem;
+          margin: 0 1rem;
+        }
+        
+  }
+  
+  .NAV-0 ul {
+        display: flex;align-items: center;gap: 0px;list-style: none;margin: 0;padding: 0;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        
+  }
+  
+  .NAV-0 a {
+        font-size: 1.1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 1rem 1.75rem;border-radius: 1.25rem;background: rgba(255, 255, 255, 0.75);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 1px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em;
+        @media (max-width: 768px) {
+          font-size: 1rem;
+          padding: 0.875rem 1.5rem;
+          white-space: nowrap;
+        }
+        &:hover {
+    color: rgb(16, 82, 162);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    }
+  
+  }
+  
+  .nav-items {
+        display: flex;align-items: center;gap: 2.5rem;list-style: none;margin: 0;padding: 0;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        width: 100%;
+        justify-content: center;
+        @media (max-width: 768px) {
+          gap: 2rem;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+        }
+        
+  }
+  
+  .nav-items li {
+        margin: 0;
+        flex-shrink: 0;
+        white-space: nowrap;
+        min-width: fit-content;
+        
+  }
+  
+  .nav-items .nav-link {
+        font-size: 1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 0px 15px;border-radius: 1.25rem;background: transparent;backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 0px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em;
+        @media (max-width: 768px) {
+          font-size: 1rem;
+          padding: 0px 15px;
+          white-space: nowrap;
+        }
+        &:hover {
+    color: rgb(16, 82, 162);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    }
+  
+  }
+  
+  .DIV-10 {
+        display: flex;align-items: center;gap: 1.5rem;box-sizing: border-box;
+        flex-shrink: 0;
+        min-width: fit-content;
+        
+  }
+  
+  .search-icon {
+        display: flex;align-items: center;justify-content: center;width: 3rem;height: 3rem;border-radius: 1.25rem;background: transparent;backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 0px solid rgba(255, 255, 255, 0.8);cursor: pointer;transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    }
+  
+  }
+  
+  .auth-buttons {
+        display: flex;align-items: center;gap: 1rem;
+        
+  }
+  
+  .login-btn {
+        background: rgba(255, 255, 255, 0.6);color: rgb(16, 82, 162);padding: 0.5rem 1rem;border-radius: 0.5rem;text-decoration: none;font-weight: 500;backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);border: 1px solid rgba(255, 255, 255, 0.7);transition: all 0.3s ease;
+        &:hover {
+    background: rgba(255, 255, 255, 0.8);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .signup-btn {
+        background: rgb(16, 82, 162);color: white;padding: 0.5rem 1rem;border-radius: 0.5rem;text-decoration: none;font-weight: 500;transition: all 0.3s ease;
+        &:hover {
+    background: rgb(97, 239, 255);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .svg-1 {
+        height: 1.25rem;width: 1.25rem;cursor: pointer;color: rgb(16, 82, 162);display: block;vertical-align: middle;box-sizing: border-box;opacity: 0.8;
+        
+  }
+  
+  .circle-0 {
+        box-sizing: border-box;
+        
+  }
+  
+  .path-2 {
+        box-sizing: border-box;
+        
+  }
+  
+  .DIV-11 {
+        position: relative;box-sizing: border-box;
+        
+  }
+  
+  .custom-user-menu {
+        position: relative;
+        
+  }
+  
+  .custom-user-menu .usermenu {
+        margin: 0;
+        
+  }
+  
+  .custom-user-menu .dropdown-toggle {
+        display: flex;cursor: pointer;align-items: center;gap: 0.5rem;border-radius: 0.75rem;background: rgba(255, 255, 255, 0.7);backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);padding: 0.75rem 1rem;box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);border: 1px solid rgba(255, 255, 255, 0.8);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-sizing: border-box;text-decoration: none;color: rgb(16, 82, 162);
+        &:hover {
+    background: rgba(255, 255, 255, 0.9);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .custom-user-menu .userbutton {
+        display: flex;align-items: center;;
+        
+  }
+  
+  .custom-user-menu .avatars {
+        display: flex;align-items: center;
+        
+  }
+  
+  .custom-user-menu .avatar {
+        height: 2.5rem;width: 2.5rem;overflow: hidden;border-radius: 0.75rem;background: rgba(255, 255, 255, 0.8);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);box-sizing: border-box;display: flex;align-items: center;justify-content: center;
+        
+  }
+  
+  .custom-user-menu .avatar img {
+        height: 100%;width: 100%;object-fit: cover;border-radius: 0.75rem;
+        
+  }
+  
+  .custom-user-menu .usertext {
+        display: none;font-weight: 500;color: rgb(16, 82, 162);box-sizing: border-box;
+        @media (min-width: 768px) {
+          display: flex;
+          }
+        
+  }
+  
+  .custom-user-menu .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 1px solid rgba(255, 255, 255, 0.3);border-radius: 0.75rem;box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);margin-top: 0.5rem;
+        
+  }
+  
+  .custom-user-menu .dropdown-item {
+        color: rgb(16, 82, 162);transition: all 0.3s ease;
+        &:hover {
+    background: rgba(16, 82, 162, 0.1);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .custom-language-menu {
+        position: relative;
+        z-index: 15;
+        
+  }
+  
+  .custom-language-menu .langmenu {
+        margin: 0;
+        
+  }
+  
+  /* Style the language selector */
+  .custom-language-menu .single_select {
+        margin: 0;
+        
+  }
+  
+  .custom-language-menu .single_select select {
+        background: transparent;
+        -webkit-backdrop-filter: blur(20px);
+        border: 0px solid rgba(255, 255, 255, 0.8);
+        border-radius: 1.25rem;
+        padding: 1rem 1.5rem;
+        color: rgb(16, 82, 162);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 120px;
+        outline: none;
+        letter-spacing: 0.025em;
+        
+  }
+  
+  .custom-language-menu .single_select select:hover {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+        
+  }
+  
+  .custom-language-menu .single_select select:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(16, 82, 162, 0.2);
+        background: rgba(255, 255, 255, 0.95);
+        
+  }
+  
+  /* Style the dropdown options */
+  .custom-language-menu .single_select select option {
+        background: rgba(255, 255, 255, 0.95);
+        color: rgb(16, 82, 162);
+        padding: 0.75rem;
+        font-weight: 500;
+        
+  }
+  
+  /* Style the dropdown toggle for custom fallback */
+  .custom-language-menu .dropdown-toggle {
+        display: flex;cursor: pointer;align-items: center;gap: 0.5rem;border-radius: 0.5rem;background: rgba(255, 255, 255, 0.6);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);padding: 0.5rem 0.75rem;border: 1px solid rgba(255, 255, 255, 0.7);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-sizing: border-box;text-decoration: none;color: rgb(16, 82, 162);
+        &:hover {
+    background: rgba(255, 255, 255, 0.8);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .custom-language-menu .langbutton {
+        font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;color: rgb(16, 82, 162);box-sizing: border-box;
+        
+  }
+  
+  .custom-language-menu .dropdown-menu {
+        background: rgba(255, 255, 255, 0.95);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 1px solid rgba(255, 255, 255, 0.3);border-radius: 0.75rem;box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);margin-top: 0.5rem;
+        
+  }
+  
+  .custom-language-menu .dropdown-item {
+        color: rgb(16, 82, 162);transition: all 0.3s ease;
+        &:hover {
+    background: rgba(16, 82, 162, 0.1);color: rgb(16, 82, 162);
+    }
+  
+  }
+  
+  .DIV-12 {
+        display: flex;cursor: pointer;align-items: center;gap: 1rem;border-radius: 1.25rem;background: rgba(255, 255, 255, 0.75);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);padding: 1rem 1.5rem;box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);border: 1px solid rgba(255, 255, 255, 0.8);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);box-sizing: border-box;
+        &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+    }
+  
+  }
+  
+  .DIV-13 {
+        height: 2.75rem;width: 2.75rem;overflow: hidden;border-radius: 50%;background: rgba(255, 255, 255, 0.9);backdrop-filter: blur(15px);-webkit-backdrop-filter: blur(15px);box-sizing: border-box;display: flex;align-items: center;justify-content: center;border: 2px solid rgba(255, 255, 255, 0.9);
+        
+  }
+  
+  .IMG-0 {
+        height: 100%;width: 100%;object-fit: cover;display: block;vertical-align: middle;max-width: 100%;box-sizing: border-box;border-radius: 50%;
+        
+  }
+  
+  .SPAN-0 {
+        display: none;font-weight: 600;color: rgb(16, 82, 162);box-sizing: border-box;font-size: 1rem;letter-spacing: 0.025em;
+        @media (min-width: 768px) {
+          display: block;
+          }
+        
+  }
+  
+  .svg-2 {
+        height: 1.25rem;width: 1.25rem;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);display: block;vertical-align: middle;box-sizing: border-box;opacity: 0.7;
+        
+  }
+  
+  .path-3 {
+        box-sizing: border-box;
+        
+  }
+  
+  .DIV-14 {
+        position: relative;box-sizing: border-box;
+        
+  }
+  
+  .DIV-15 {
+        display: flex;cursor: pointer;align-items: center;gap: 0.5rem;border-radius: 0.5rem;background: rgba(255, 255, 255, 0.6);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);padding: 0.5rem 0.75rem;border: 1px solid rgba(255, 255, 255, 0.7);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-sizing: border-box;
+        &:hover {
+    background: rgba(255, 255, 255, 0.8);
+    }
+  
+  }
+  
+  .svg-3 {
+        height: 1rem;width: 1rem;color: rgb(16, 82, 162);display: block;vertical-align: middle;box-sizing: border-box;
+        
+  }
+  
+  .circle-1 {
+        box-sizing: border-box;
+        
+  }
+  
+  .path-4 {
+        box-sizing: border-box;
+        
+  }
+  
+  .path-5 {
+        box-sizing: border-box;
+        
+  }
+  
+  .SPAN-1 {
+        font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;color: rgb(16, 82, 162);box-sizing: border-box;
+        
+  }
+  
+  .svg-4 {
+        height: 0.75rem;width: 0.75rem;color: rgb(16, 82, 162);transition-property: transform;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;display: block;vertical-align: middle;box-sizing: border-box;
+        
+  }
+  
+  .path-6 {
+        box-sizing: border-box;
+        
+  }
+  
+  .custom-menu-additional {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: 1rem;
+        
+  }
+  
+  .custom-menu-additional a {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+        color: rgb(16, 82, 162);
+        text-decoration: none;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.4rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        
+  }
+  
+  .custom-menu-additional a:hover {
+        color: rgb(97, 239, 255);
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.4);
+        
+  }
+  
+  
+  </style>
 
-                            {{^ main_logo }}
-                                <h2  {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>{{sitename}}</h2>
-                            {{/main_logo}}
-                        </a>
-                    {{/logo_visibility}}
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="ri-close-line"></i></span>
-                </button>
-            </div>
+<script>
+// Simple and reliable language switching function
+function changeLanguage(langCode) {
+    console.log('Changing language to:', langCode);
+    
+    // Check if user is logged in
+    const isLoggedIn = {{#isloggedin}}true{{/isloggedin}}{{^isloggedin}}false{{/isloggedin}};
+    
+    if (isLoggedIn) {
+        // For logged-in users, use the hidden form to update language preference
+        const langInput = document.getElementById('lang-input');
+        const returnUrlInput = document.getElementById('returnurl-input');
+        if (langInput && returnUrlInput) {
+            langInput.value = langCode;
+            returnUrlInput.value = window.location.href;
+            console.log('Submitting form with language:', langCode);
+            
+            // Disable the language selector temporarily to prevent multiple submissions
+            const languageSelector = document.getElementById('language-selector');
+            if (languageSelector) {
+                languageSelector.disabled = true;
+            }
+            
+            document.getElementById('language-form').submit();
+        } else {
+            // Fallback: use URL parameter
+            console.log('Using URL parameter fallback');
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.delete('lang');
+            currentUrl.searchParams.set('lang', langCode);
+            window.location.href = currentUrl.toString();
+        }
+    } else {
+        // For guest users, use the lang parameter (this works)
+        console.log('Guest user - using URL parameter');
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.delete('lang');
+        currentUrl.searchParams.delete('forcelang');
+        currentUrl.searchParams.set('lang', langCode);
+        window.location.href = currentUrl.toString();
+    }
+}
 
-            <div class="modal-body offcanvas-body">
-                {{#offcanvas_content}} 
-                    {{{offcanvas_content}}}
-                {{/offcanvas_content}}
-
-                {{#offcanvas_social_title}}
-                    <div class="social-link">
-                        <h3>{{offcanvas_social_title}}</h3>
-
-                        <ul>
-                            {{> theme_edma/edma_social_icons }}
-                        </ul>
-                    </div>
-                {{/offcanvas_social_title}}
-            </div>
-        </div>
-    </div>
-</div>
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter out language-related content from custom menu
+    const customMenuFiltered = document.getElementById('custom-menu-filtered');
+    if (customMenuFiltered) {
+        // Remove any elements that contain language-related text
+        const languageElements = customMenuFiltered.querySelectorAll('*');
+        languageElements.forEach(element => {
+            const text = element.textContent || '';
+            if (text.includes('English') || text.includes('العربية') || text.includes('lang') || 
+                text.includes('language') || element.classList.contains('langmenu') || 
+                element.classList.contains('language-menu')) {
+                element.style.display = 'none';
+            }
+        });
+    }
+    
+    // Search icon click handler
+    const searchIcon = document.getElementById('search-icon');
+    
+    // Search icon click handler
+    if (searchIcon) {
+        searchIcon.addEventListener('click', function() {
+            // Trigger Moodle's search functionality
+            const moodleSearch = document.querySelector('[data-region="search-input"]');
+            if (moodleSearch) {
+                moodleSearch.focus();
+            } else {
+                // Fallback: redirect to search page
+                window.location.href = '{{{ config.wwwroot }}}/search/index.php';
+            }
+        });
+    }
+    
+    // User menu trigger handler
+    const userMenuTrigger = document.getElementById('user-menu-trigger');
+    if (userMenuTrigger) {
+        userMenuTrigger.addEventListener('click', function() {
+            // Trigger Moodle's user menu
+            const moodleUserMenu = document.querySelector('[data-region="user-menu"]');
+            if (moodleUserMenu) {
+                const dropdownToggle = moodleUserMenu.querySelector('[data-bs-toggle="dropdown"]');
+                if (dropdownToggle) {
+                    dropdownToggle.click();
+                }
+            }
+        });
+    }
+    
+    // Language selector integration
+    const languageSelector = document.getElementById('language-selector');
+    
+    // Function to update current language display
+    function updateCurrentLanguageDisplay() {
+        const currentLang = document.documentElement.lang || 'ar';
+        
+        // Update the language selector
+        if (languageSelector) {
+            languageSelector.value = currentLang;
+            // Re-enable the selector if it was disabled
+            languageSelector.disabled = false;
+        }
+        
+        // Update navbar direction
+        const navbarHeader = document.getElementById('navbar-header');
+        if (navbarHeader) {
+            if (currentLang === 'ar') {
+                navbarHeader.style.direction = 'rtl';
+                navbarHeader.classList.remove('ltr');
+            } else {
+                navbarHeader.style.direction = 'ltr';
+                navbarHeader.classList.add('ltr');
+            }
+        }
+        
+        console.log('Language updated to:', currentLang);
+        
+        // Check if this matches what we expect - now checking for forcelang parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        const urlForceLang = urlParams.get('forcelang');
+        const expectedLang = urlForceLang || urlLang;
+        
+        if (expectedLang && expectedLang !== currentLang) {
+            console.log('URL language parameter:', expectedLang, 'but page language is:', currentLang);
+            console.log('This suggests Moodle is overriding our language setting');
+            
+            // Try to force the language by updating the document lang attribute
+            document.documentElement.lang = expectedLang;
+            
+            // Also try to force it by setting the HTML lang attribute
+            document.documentElement.setAttribute('lang', expectedLang);
+            
+            // Force a page reload if there's still a mismatch after a delay
+            setTimeout(() => {
+                if (document.documentElement.lang !== expectedLang) {
+                    console.log('Forcing page reload to apply language change');
+                    window.location.reload();
+                }
+            }, 500);
+        }
+        
+        // Additional check: if we have a forcelang parameter, ensure it's applied
+        if (urlForceLang) {
+            console.log('Forcelang parameter detected:', urlForceLang);
+            // Force the language immediately
+            document.documentElement.lang = urlForceLang;
+            document.documentElement.setAttribute('lang', urlForceLang);
+            
+            // Update the selector to match
+            if (languageSelector) {
+                languageSelector.value = urlForceLang;
+            }
+        }
+    }
+    
+    // Update language display on page load
+    updateCurrentLanguageDisplay();
+    
+    // Add smooth transition for direction changes
+    const navbarHeader = document.getElementById('navbar-header');
+    if (navbarHeader) {
+        navbarHeader.style.transition = 'direction 0.3s ease';
+    }
+    
+    // Listen for language changes from Moodle's system
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+                updateCurrentLanguageDisplay();
+            }
+        });
+    });
+    
+    // Start observing
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+    });
+});
+</script>
