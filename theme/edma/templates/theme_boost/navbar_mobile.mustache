@@ -1,0 +1,463 @@
+{{!
+    This file is part of the EDMA theme for Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_edma/navbar_mobile
+
+    Mobile navbar template for EDMA theme
+}}
+
+<style>
+/* Mobile Navbar Styles - Only show on mobile */
+@media (max-width: 768px) {
+    .mobile-navbar {
+        display: block !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-navbar {
+        display: none !important;
+    }
+}
+
+.mobile-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mobile-navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.mobile-navbar-logo img {
+    height: 2.5rem;
+    width: auto;
+}
+
+.mobile-navbar-logo-text {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #123071;
+    line-height: 1.2;
+}
+
+.mobile-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-navbar-toggle {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-navbar-toggle:hover {
+    background: rgba(18, 48, 113, 0.1);
+}
+
+.mobile-navbar-toggle-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #123071;
+}
+
+.mobile-navbar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.mobile-navbar-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-navbar-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(18, 48, 113, 0.1);
+}
+
+.mobile-navbar-menu-close {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-navbar-menu-close:hover {
+    background: rgba(18, 48, 113, 0.1);
+}
+
+.mobile-navbar-menu-close-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #123071;
+}
+
+.mobile-navbar-menu-content {
+    padding: 1.5rem;
+}
+
+.mobile-navbar-menu-section {
+    margin-bottom: 2rem;
+}
+
+.mobile-navbar-menu-section-title {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #7B7B7B;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-navbar-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(18, 48, 113, 0.05);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-navbar-menu-item:hover {
+    background: rgba(18, 48, 113, 0.05);
+    margin: 0 -1.5rem;
+    padding: 1rem 1.5rem;
+}
+
+.mobile-navbar-menu-item-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: 1rem;
+    color: #123071;
+}
+
+.mobile-navbar-menu-item-text {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #123071;
+}
+
+.mobile-navbar-menu-item-subtitle {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    color: #7B7B7B;
+    margin-top: 0.25rem;
+}
+
+.mobile-navbar-menu-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(18, 48, 113, 0.1);
+    margin-top: auto;
+}
+
+.mobile-navbar-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(18, 48, 113, 0.05);
+    border-radius: 12px;
+}
+
+.mobile-navbar-user-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mobile-navbar-user-info {
+    flex: 1;
+}
+
+.mobile-navbar-user-name {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #123071;
+    margin-bottom: 0.25rem;
+}
+
+.mobile-navbar-user-role {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    color: #7B7B7B;
+}
+
+.mobile-navbar-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(18, 48, 113, 0.05);
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-navbar-language:hover {
+    background: rgba(18, 48, 113, 0.1);
+}
+
+.mobile-navbar-language-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #123071;
+}
+
+.mobile-navbar-language-text {
+    font-family: "DIN Next LT Arabic", "Open Sans", sans-serif;
+    font-size: 0.875rem;
+    color: #123071;
+    font-weight: 500;
+}
+</style>
+
+<div class="mobile-navbar">
+    <div class="mobile-navbar-container">
+        <!-- Logo -->
+        <a href="{{{ config.wwwroot }}}" class="mobile-navbar-logo">
+            <img src="{{{ config.wwwroot }}}/blocks/logo.svg" alt="EDMA Logo" onerror="this.style.display='none'">
+            <span class="mobile-navbar-logo-text">بُعد</span>
+        </a>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-navbar-toggle" onclick="toggleMobileMenu()">
+            <svg class="mobile-navbar-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-navbar-menu" id="mobileNavbarMenu">
+        <div class="mobile-navbar-menu-header">
+            <span class="mobile-navbar-logo-text">القائمة</span>
+            <button class="mobile-navbar-menu-close" onclick="toggleMobileMenu()">
+                <svg class="mobile-navbar-menu-close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="mobile-navbar-menu-content">
+            <!-- Navigation Section -->
+            <div class="mobile-navbar-menu-section">
+                <div class="mobile-navbar-menu-section-title">التنقل</div>
+                <a href="{{{ config.wwwroot }}}" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">الرئيسية</div>
+                    </div>
+                </a>
+                
+                <a href="{{{ config.wwwroot }}}/course/" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 5.477 5.754 5 7.5 5c1.747 0 3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.523 18.246 19 16.5 19c-1.746 0-3.332-.477-4.5-1.253"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">الدورات</div>
+                    </div>
+                </a>
+                
+                <a href="{{{ config.wwwroot }}}/calendar/" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">التقويم</div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- User Section -->
+            {{#userfullname}}
+            <div class="mobile-navbar-menu-section">
+                <div class="mobile-navbar-menu-section-title">الحساب</div>
+                <a href="{{{ config.wwwroot }}}/user/profile.php" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">الملف الشخصي</div>
+                    </div>
+                </a>
+                
+                <a href="{{{ config.wwwroot }}}/message/" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">الرسائل</div>
+                    </div>
+                </a>
+                
+                <a href="{{{ config.wwwroot }}}/admin/" class="mobile-navbar-menu-item">
+                    <svg class="mobile-navbar-menu-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <div>
+                        <div class="mobile-navbar-menu-item-text">الإعدادات</div>
+                    </div>
+                </a>
+            </div>
+            {{/userfullname}}
+        </div>
+        
+        <!-- Footer with User Info and Language -->
+        <div class="mobile-navbar-menu-footer">
+            {{#userfullname}}
+            <div class="mobile-navbar-user">
+                {{#userpicture}}
+                <img src="{{{ userpicture }}}" alt="{{{ userfullname }}}" class="mobile-navbar-user-avatar">
+                {{/userpicture}}
+                {{^userpicture}}
+                <div class="mobile-navbar-user-avatar" style="background: #123071; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    {{userfirstname}}
+                </div>
+                {{/userpicture}}
+                <div class="mobile-navbar-user-info">
+                    <div class="mobile-navbar-user-name">{{{ userfullname }}}</div>
+                    <div class="mobile-navbar-user-role">مستخدم</div>
+                </div>
+            </div>
+            {{/userfullname}}
+            
+            <!-- Language Switcher -->
+            <div class="mobile-navbar-language" onclick="toggleLanguage()">
+                <svg class="mobile-navbar-language-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+                <span class="mobile-navbar-language-text" id="mobileLanguageText">
+                    {{#langmenu}}{{langmenu}}{{/langmenu}}
+                    {{^langmenu}}العربية{{/langmenu}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileNavbarMenu');
+    if (!menu) return;
+    
+    menu.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    if (menu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function toggleLanguage() {
+    const langElement = document.getElementById('mobileLanguageText');
+    if (!langElement) return;
+    
+    const currentLang = langElement.textContent.trim();
+    const newLang = currentLang === 'العربية' ? 'English' : 'العربية';
+    const langCode = currentLang === 'العربية' ? 'en' : 'ar';
+    
+    // Update display
+    langElement.textContent = newLang;
+    
+    // Change page direction
+    document.documentElement.dir = langCode === 'ar' ? 'rtl' : 'ltr';
+    
+    // Store preference
+    localStorage.setItem('edma_language', langCode);
+    
+    // Optional: Reload page to apply language change
+    // window.location.reload();
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileNavbarMenu');
+    const toggle = document.querySelector('.mobile-navbar-toggle');
+    
+    if (menu && toggle && !menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Initialize language from localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLang = localStorage.getItem('edma_language');
+    if (savedLang) {
+        const langText = savedLang === 'ar' ? 'العربية' : 'English';
+        const langElement = document.getElementById('mobileLanguageText');
+        if (langElement) {
+            langElement.textContent = langText;
+        }
+        document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+    }
+});
+</script>

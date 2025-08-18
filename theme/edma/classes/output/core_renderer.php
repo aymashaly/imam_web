@@ -875,6 +875,8 @@ class core_renderer extends \core_renderer {
         return $this->unique_main_content_token;
     }
 
+
+
     public function firstview_fakeblocks(): bool {
         global $SESSION;
 

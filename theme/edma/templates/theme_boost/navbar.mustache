@@ -1,4 +1,6 @@
-image.pngimage.pngimage.png
+{{!-- Include Mobile Navbar --}}
+{{> theme_boost/navbar_mobile }}
+
 {{#top_header}}
     <div class="top-header-area bg-color-0f6c76">
         <div class="container-fluid">
@@ -21,6 +23,55 @@ image.pngimage.pngimage.png
     </div>
  {{/top_header}}
 
+<!-- Error message for language switching -->
+{{#error}}
+    {{#error.invalidlanguage}}
+        <div class="alert alert-danger" style="margin: 10px; padding: 10px; background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 8px; color: #721c24;">
+            <strong>خطأ في تغيير اللغة:</strong> اللغة المحددة غير صحيحة. يرجى المحاولة مرة أخرى.
+        </div>
+    {{/error.invalidlanguage}}
+{{/error}}
+
+<!-- Alternative error handling for URL parameters -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check for error in URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    
+    if (error === 'invalidlanguage') {
+        // Create and display error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'alert alert-danger';
+        errorDiv.style.cssText = 'margin: 10px; padding: 10px; background: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 8px; color: #721c24; position: fixed; top: 60px; left: 50%; transform: translateX(-50%); z-index: 9999;';
+        errorDiv.innerHTML = '<strong>خطأ في تغيير اللغة:</strong> اللغة المحددة غير صحيحة. يرجى المحاولة مرة أخرى.<br><small>Error: invalidlanguage</small>';
+        
+        // Add close button
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '×';
+        closeBtn.style.cssText = 'float: right; font-weight: bold; font-size: 20px; line-height: 1; color: #721c24; background: none; border: none; cursor: pointer; margin-left: 10px;';
+        closeBtn.onclick = function() { errorDiv.remove(); };
+        errorDiv.appendChild(closeBtn);
+        
+        document.body.appendChild(errorDiv);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (errorDiv.parentNode) {
+                errorDiv.remove();
+            }
+        }, 5000);
+        
+        // Remove error from URL
+        urlParams.delete('error');
+        const newUrl = window.location.pathname + (urlParams.toString() ? '?' + urlParams.toString() : '');
+        window.history.replaceState({}, '', newUrl);
+    }
+    
+    // Language detection is handled in the main script
+});
+</script>
+
 <header class="HEADER-0" id="navbar-header">
     <div class="DIV-0">
       <div class="DIV-1"></div>
@@ -36,17 +87,7 @@ image.pngimage.pngimage.png
               <img src="{{main_logo}}" alt="{{sitename}}" class="svg-0" {{#logo_styles}} style="{{{logo_styles}}}" {{/logo_styles}}>
                         {{/main_logo}}
                         {{^ main_logo }}
-              <svg viewBox="0 0 53 94" class="svg-0">
-                <path
-                  d="M45.0767 28.3346C46.5781 29.1421 48.1069 30.4833 49.2466 31.7789C52.9313 35.9623 53.5538 41.2496 52.6109 46.6237C51.2697 54.2468 45.4841 58.5852 38.0094 59.5159L0.997794 59.452C0.60415 59.2467 0.343247 58.9228 0.18762 58.5077C0.00910723 39.694 0.164734 20.8484 0.10523 2.02558C0.215084 0.821207 1.06188 0.150593 2.24281 0.114097C11.9832 0.396941 21.925 -0.2463 31.6425 0.114097C37.5975 0.333073 41.6163 1.85222 45.5665 6.35035C50.4046 11.8567 50.8578 20.6978 46.4316 26.5737C46.2485 26.8155 44.9486 28.175 45.0721 28.3346H45.0767ZM31.4548 6.92972C23.5636 6.99815 15.6084 6.95253 7.72635 7.1122C6.84752 7.4726 6.49965 8.34394 6.46761 9.24722V51.0351C6.5088 51.9749 7.04434 52.8143 8.06049 52.8417L37.7714 52.8234C47.8231 51.1264 49.7272 39.0508 41.0533 33.8273C40.4125 33.4395 39.1766 32.6913 38.4946 33.0882C33.1621 35.8984 28.0082 39.621 22.6711 42.3536C20.4328 43.4987 18.1808 42.7369 17.659 40.2049V17.6687C18.0114 15.5291 20.3184 14.197 22.3415 15.082C27.2895 17.8466 31.9949 21.0446 36.9292 23.8274C37.7394 24.2836 38.9844 25.3602 39.7625 24.6166C45.0859 19.5437 42.9071 9.58025 35.8398 7.4133C34.3019 6.93885 33.0477 6.91148 31.4548 6.92516V6.92972ZM24.4837 24.8629C24.3601 24.9861 24.3601 25.2644 24.3418 25.4332C24.1862 27.2626 24.1724 30.8392 24.3418 32.6594C24.4516 33.8592 25.0101 33.4213 25.7378 33.0563C27.7518 32.0435 29.6926 30.6247 31.734 29.6302C32.0178 29.466 32.2421 29.1968 32.1231 28.8456C31.9949 28.4669 25.9621 25.3921 25.1977 24.8082C25.0101 24.6896 24.6439 24.7078 24.4882 24.8629H24.4837Z"
-                  class="path-0"
-                ></path>
-                <path
-                  d="M24.4837 24.8629C24.6394 24.7077 25.0055 24.6941 25.1932 24.8081C25.9576 25.392 31.9904 28.4668 32.1186 28.8455C32.2376 29.1967 32.0179 29.4659 31.7295 29.6301C29.6881 30.6292 27.7473 32.048 25.7333 33.0562C25.0055 33.4212 24.4471 33.8591 24.3373 32.6593C24.1679 30.8391 24.1816 27.2625 24.3373 25.4331C24.351 25.2643 24.3556 24.986 24.4792 24.8629H24.4837Z"
-                  fill="#61EDFC"
-                  class="path-1"
-                ></path>
-              </svg>
+              <img src="{{{ config.wwwroot }}}/blocks/logo.svg" alt="{{sitename}}" class="svg-0">
                         {{/main_logo}}
                 {{/logo_visibility}}
           <div class="DIV-8"><div class="DIV-9"></div></div>
@@ -103,7 +144,7 @@ image.pngimage.pngimage.png
             {{/usermenu}}
             {{^usermenu}}
               <!-- Fallback for when usermenu is not available -->
-              <div class="DIV-12" id="user-menu-trigger">
+              <div class="DIV-12" id="user-menu-toggle" role="button" data-toggle="dropdown" aria-label="User menu" aria-haspopup="true" aria-controls="user-action-menu">
                 <div class="DIV-13">
                   {{#isloggedin}}
                     {{#userpicture}}
@@ -115,28 +156,41 @@ image.pngimage.pngimage.png
                     {{/userpicture}}
                     {{^userpicture}}
                       <div style="width: 100%; height: 100%; background-color: rgb(16, 82, 162); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem;">
-                        {{#userfullname}}
-                          {{userfullname}}
-                        {{/userfullname}}
-                        {{^userfullname}}
-                          <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
-                        {{/userfullname}}
-                            </div>
+                        {{#userfirstname}}{{userfirstname}}{{/userfirstname}}{{#userlastname}}{{userlastname}}{{/userlastname}}
+                        {{^userfirstname}}
+                          {{#userfullname}}
+                            {{userfullname}}
+                          {{/userfullname}}
+                          {{^userfullname}}
+                            <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
+                          {{/userfullname}}
+                        {{/userfirstname}}
+                      </div>
                     {{/userpicture}}
                     {{/isloggedin}}
                   {{^isloggedin}}
                     <div style="width: 100%; height: 100%; background-color: rgb(16, 82, 162); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1rem;">
-                      AU
+                      {{#userfirstname}}{{userfirstname}}{{/userfirstname}}{{#userlastname}}{{userlastname}}{{/userlastname}}
+                      {{^userfirstname}}
+                        AU
+                      {{/userfirstname}}
                     </div>
                     {{/isloggedin}}
                 </div>
-                <span class="SPAN-0">
+                <span class="SPAN-0" id="user-fullname-display">
+                  <!-- Debug: isloggedin = {{isloggedin}} -->
+                  <!-- Debug: userfullname = {{userfullname}} -->
+                  <!-- Debug: userfirstname = {{userfirstname}} -->
+                  <!-- Debug: userlastname = {{userlastname}} -->
                   {{#isloggedin}}
                     {{#userfullname}}
                       {{userfullname}}
                     {{/userfullname}}
                     {{^userfullname}}
-                      <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
+                      {{#userfirstname}}{{userfirstname}}{{/userfirstname}}{{#userlastname}} {{userlastname}}{{/userlastname}}
+                      {{^userfirstname}}
+                        <span data-ar="سعود محمد" data-en="Saud Mohammed">سعود محمد</span>
+                      {{/userfirstname}}
                     {{/userfullname}}
                   {{/isloggedin}}
                   {{^isloggedin}}
@@ -163,23 +217,26 @@ image.pngimage.pngimage.png
 
           <!-- Moodle Language Menu Integration -->
           <div class="DIV-14">
-            <div class="custom-language-menu">
+            {{#langmenu}}
+              {{> theme_boost/language_menu }}
+            {{/langmenu}}
+            {{^langmenu}}
+              <!-- Fallback language menu with proper Moodle language switching -->
               <div class="langmenu">
-                <div class="single_select">
-                  <select id="language-selector" onchange="changeLanguage(this.value)">
-                    <option value="ar" {{#lang_ar}}selected{{/lang_ar}}>العربية</option>
-                    <option value="en" {{#lang_en}}selected{{/lang_en}}>English</option>
-                  </select>
+                <div class="dropdown show">
+                  <a href="#" role="button" id="lang-menu-toggle" data-toggle="dropdown" aria-label="Language" aria-haspopup="true" aria-controls="lang-action-menu" class="btn dropdown-toggle">
+                    <i class="icon fa fa-language fa-fw me-1" aria-hidden="true"></i>
+                    <span class="langbutton" id="current-lang-display">English (en)</span>
+                    <b class="caret"></b>
+                  </a>
+                  <div role="menu" aria-labelledby="lang-menu-toggle" id="lang-action-menu" class="dropdown-menu dropdown-menu-right">
+                    <a href="{{{ config.wwwroot }}}/theme/edma/langswitch.php?lang=en" class="dropdown-item ps-5" role="menuitem">English (en)</a>
+                    <a href="{{{ config.wwwroot }}}/theme/edma/langswitch.php?lang=ar" class="dropdown-item ps-5" role="menuitem">العربية (ar)</a>
+                  </div>
                 </div>
               </div>
-                </div>
-            </div>
-            
-          <!-- Hidden form for language switching -->
-          <form id="language-form" method="post" action="{{{ config.wwwroot }}}/theme/edma/langswitch.php" style="display: none;">
-            <input type="hidden" name="lang" id="lang-input" value="">
-            <input type="hidden" name="returnurl" id="returnurl-input" value="">
-          </form>
+            {{/langmenu}}
+          </div>
           
           <!-- Login/Signup Buttons for Guests -->
           {{^isloggedin}}
@@ -211,6 +268,23 @@ image.pngimage.pngimage.png
 </div>
 
   <style>
+  /* Mobile navbar spacing */
+  @media (max-width: 768px) {
+      body {
+          padding-top: 80px; /* Space for mobile navbar */
+      }
+      
+      .HEADER-0 {
+          display: none; /* Hide desktop navbar on mobile */
+      }
+  }
+
+  @media (min-width: 769px) {
+      .mobile-navbar {
+          display: none !important; /* Hide mobile navbar on desktop */
+      }
+  }
+
   .HEADER-0 {
         color: rgb(2, 8, 23);direction: rtl;background: transparent;position: fixed;top: 0px;z-index: 50;width: 100%;box-sizing: border-box;
         
@@ -246,14 +320,9 @@ image.pngimage.pngimage.png
   }
   
   .DIV-5 {
-        width: 100%;margin-right: auto;margin-left: auto;padding: 1.25rem 2.5rem;position: relative;z-index: 10;box-sizing: border-box;
+        margin-right: 90px;margin-left: 90px;padding: 1.25rem 2.5rem;position: relative;z-index: 10;box-sizing: border-box;
         max-width: none;
-        @media (min-width: 1400px) {
-          max-width: 1400px;
-          }
-        @media (max-width: 768px) {
-          padding: 1rem 1.5rem;
-        }
+       
         
   }
   
@@ -267,7 +336,7 @@ image.pngimage.pngimage.png
   
   .DIV-7 {
         display: flex;align-items: center;gap: 2rem;box-sizing: border-box;
-        flex: 1;
+   
         min-width: 0;
         max-width: none;
         
@@ -302,7 +371,7 @@ image.pngimage.pngimage.png
         display: flex;align-items: center;gap: 2.5rem;box-sizing: border-box;
         margin: 0 3rem;
         flex: 1;
-        justify-content: center;
+        justify-content: flex-end;
         position: relative;
         z-index: 20;
         flex-wrap: nowrap;
@@ -332,11 +401,12 @@ image.pngimage.pngimage.png
         display: flex;align-items: center;gap: 0px;list-style: none;margin: 0;padding: 0;
         flex-wrap: nowrap;
         white-space: nowrap;
+        justify-content: start;
         
   }
   
   .NAV-0 a {
-        font-size: 1.1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 1rem 1.75rem;border-radius: 1.25rem;background: rgba(255, 255, 255, 0.75);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 1px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em;
+        font-size: 1.1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 1rem 1.75rem;border-radius: 1.25rem;background: rgba(255, 255, 255, 0.75);border: 1px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em;
         @media (max-width: 768px) {
           font-size: 1rem;
           padding: 0.875rem 1.5rem;
@@ -356,7 +426,7 @@ image.pngimage.pngimage.png
         flex-wrap: nowrap;
         white-space: nowrap;
         width: 100%;
-        justify-content: center;
+        justify-content: flex-end;
         @media (max-width: 768px) {
           gap: 2rem;
           flex-wrap: nowrap;
@@ -374,7 +444,7 @@ image.pngimage.pngimage.png
   }
   
   .nav-items .nav-link {
-        font-size: 1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 0px 15px;border-radius: 1.25rem;background: transparent;backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 0px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em;
+        font-size: 1rem;line-height: 1.6;font-weight: 600;color: rgb(16, 82, 162);transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);text-decoration: none;padding: 0px 15px;border-radius: 1.25rem;background: transparent;border: 0px solid rgba(255, 255, 255, 0.8);white-space: nowrap;flex-shrink: 0;min-width: fit-content;letter-spacing: 0.025em; background-color: #fff00;
         @media (max-width: 768px) {
           font-size: 1rem;
           padding: 0px 15px;
@@ -505,88 +575,50 @@ image.pngimage.pngimage.png
   
   }
   
-  .custom-language-menu {
+  /* Moodle's default language menu styling */
+  .langmenu {
         position: relative;
         z-index: 15;
         
   }
   
-  .custom-language-menu .langmenu {
-        margin: 0;
-        
-  }
-  
-  /* Style the language selector */
-  .custom-language-menu .single_select {
-        margin: 0;
-        
-  }
-  
-  .custom-language-menu .single_select select {
-        background: transparent;
-        -webkit-backdrop-filter: blur(20px);
-        border: 0px solid rgba(255, 255, 255, 0.8);
+  .langmenu .dropdown-toggle {
+
         border-radius: 1.25rem;
-        padding: 1rem 1.5rem;
         color: rgb(16, 82, 162);
-        font-size: 1rem;
         font-weight: 600;
-        cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        min-width: 120px;
-        outline: none;
-        letter-spacing: 0.025em;
         
   }
   
-  .custom-language-menu .single_select select:hover {
+  .langmenu .dropdown-toggle:hover {
         background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         
   }
   
-  .custom-language-menu .single_select select:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(16, 82, 162, 0.2);
+  .langmenu .dropdown-menu {
         background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        margin-top: 0.5rem;
         
   }
   
-  /* Style the dropdown options */
-  .custom-language-menu .single_select select option {
-        background: rgba(255, 255, 255, 0.95);
+  .langmenu .dropdown-item {
         color: rgb(16, 82, 162);
-        padding: 0.75rem;
-        font-weight: 500;
+        transition: all 0.3s ease;
         
   }
   
-  /* Style the dropdown toggle for custom fallback */
-  .custom-language-menu .dropdown-toggle {
-        display: flex;cursor: pointer;align-items: center;gap: 0.5rem;border-radius: 0.5rem;background: rgba(255, 255, 255, 0.6);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);padding: 0.5rem 0.75rem;border: 1px solid rgba(255, 255, 255, 0.7);transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);transition-duration: 150ms;box-sizing: border-box;text-decoration: none;color: rgb(16, 82, 162);
-        &:hover {
-    background: rgba(255, 255, 255, 0.8);color: rgb(16, 82, 162);
-    }
-  
-  }
-  
-  .custom-language-menu .langbutton {
-        font-size: 0.875rem;line-height: 1.25rem;font-weight: 500;color: rgb(16, 82, 162);box-sizing: border-box;
+  .langmenu .dropdown-item:hover {
+        background: rgba(16, 82, 162, 0.1);
+        color: rgb(16, 82, 162);
         
-  }
-  
-  .custom-language-menu .dropdown-menu {
-        background: rgba(255, 255, 255, 0.95);backdrop-filter: blur(20px);-webkit-backdrop-filter: blur(20px);border: 1px solid rgba(255, 255, 255, 0.3);border-radius: 0.75rem;box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);margin-top: 0.5rem;
-        
-  }
-  
-  .custom-language-menu .dropdown-item {
-        color: rgb(16, 82, 162);transition: all 0.3s ease;
-        &:hover {
-    background: rgba(16, 82, 162, 0.1);color: rgb(16, 82, 162);
-    }
-  
   }
   
   .DIV-12 {
@@ -610,7 +642,7 @@ image.pngimage.pngimage.png
   }
   
   .SPAN-0 {
-        display: none;font-weight: 600;color: rgb(16, 82, 162);box-sizing: border-box;font-size: 1rem;letter-spacing: 0.025em;
+        display: none;font-weight: 600;color: rgb(16, 82, 162);box-sizing: border-box;font-size: 1rem;letter-spacing: 0.025em;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 150px;
         @media (min-width: 768px) {
           display: block;
           }
@@ -710,47 +742,7 @@ image.pngimage.pngimage.png
   </style>
 
 <script>
-// Simple and reliable language switching function
-function changeLanguage(langCode) {
-    console.log('Changing language to:', langCode);
-    
-    // Check if user is logged in
-    const isLoggedIn = {{#isloggedin}}true{{/isloggedin}}{{^isloggedin}}false{{/isloggedin}};
-    
-    if (isLoggedIn) {
-        // For logged-in users, use the hidden form to update language preference
-        const langInput = document.getElementById('lang-input');
-        const returnUrlInput = document.getElementById('returnurl-input');
-        if (langInput && returnUrlInput) {
-            langInput.value = langCode;
-            returnUrlInput.value = window.location.href;
-            console.log('Submitting form with language:', langCode);
-            
-            // Disable the language selector temporarily to prevent multiple submissions
-            const languageSelector = document.getElementById('language-selector');
-            if (languageSelector) {
-                languageSelector.disabled = true;
-            }
-            
-            document.getElementById('language-form').submit();
-        } else {
-            // Fallback: use URL parameter
-            console.log('Using URL parameter fallback');
-            const currentUrl = new URL(window.location.href);
-            currentUrl.searchParams.delete('lang');
-            currentUrl.searchParams.set('lang', langCode);
-            window.location.href = currentUrl.toString();
-        }
-    } else {
-        // For guest users, use the lang parameter (this works)
-        console.log('Guest user - using URL parameter');
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.delete('lang');
-        currentUrl.searchParams.delete('forcelang');
-        currentUrl.searchParams.set('lang', langCode);
-        window.location.href = currentUrl.toString();
-    }
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Filter out language-related content from custom menu
@@ -786,9 +778,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // User menu trigger handler
-    const userMenuTrigger = document.getElementById('user-menu-trigger');
-    if (userMenuTrigger) {
-        userMenuTrigger.addEventListener('click', function() {
+    const userMenuToggle = document.getElementById('user-menu-toggle');
+    if (userMenuToggle) {
+        userMenuToggle.addEventListener('click', function() {
             // Trigger Moodle's user menu
             const moodleUserMenu = document.querySelector('[data-region="user-menu"]');
             if (moodleUserMenu) {
@@ -800,22 +792,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Language selector integration
-    const languageSelector = document.getElementById('language-selector');
+    // Add smooth transition for direction changes
+    const navbarHeader = document.getElementById('navbar-header');
+    if (navbarHeader) {
+        navbarHeader.style.transition = 'direction 0.3s ease';
+    }
     
-    // Function to update current language display
-    function updateCurrentLanguageDisplay() {
+    // Update navbar direction based on current language
+    function updateNavbarDirection() {
         const currentLang = document.documentElement.lang || 'ar';
-        
-        // Update the language selector
-        if (languageSelector) {
-            languageSelector.value = currentLang;
-            // Re-enable the selector if it was disabled
-            languageSelector.disabled = false;
-        }
-        
-        // Update navbar direction
-        const navbarHeader = document.getElementById('navbar-header');
         if (navbarHeader) {
             if (currentLang === 'ar') {
                 navbarHeader.style.direction = 'rtl';
@@ -825,44 +810,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 navbarHeader.classList.add('ltr');
             }
         }
-        
-        console.log('Language updated to:', currentLang);
-        
-        // Check if this matches what we expect - now checking for forcelang parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('lang');
-        const urlForceLang = urlParams.get('forcelang');
-        const expectedLang = urlForceLang || urlLang;
-        
-        if (expectedLang && expectedLang !== currentLang) {
-            console.log('URL language parameter:', expectedLang, 'but page language is:', currentLang);
-            console.log('This suggests Moodle is overriding our language setting');
+    }
+    
+    // Update direction on page load
+    updateNavbarDirection();
+    
+    // Update current language display
+    function updateCurrentLanguageDisplay() {
+        const currentLangDisplay = document.getElementById('current-lang-display');
+        if (currentLangDisplay) {
+            // Get current language from document or URL parameters
+            let currentLang = document.documentElement.lang || 'ar';
             
-            // Try to force the language by updating the document lang attribute
-            document.documentElement.lang = expectedLang;
+            // Check URL parameters for language
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const urlForceLang = urlParams.get('forcelang');
             
-            // Also try to force it by setting the HTML lang attribute
-            document.documentElement.setAttribute('lang', expectedLang);
+            if (urlForceLang && ['ar', 'en'].includes(urlForceLang)) {
+                currentLang = urlForceLang;
+            } else if (urlLang && ['ar', 'en'].includes(urlLang)) {
+                currentLang = urlLang;
+            }
             
-            // Force a page reload if there's still a mismatch after a delay
-            setTimeout(() => {
-                if (document.documentElement.lang !== expectedLang) {
-                    console.log('Forcing page reload to apply language change');
-                    window.location.reload();
-                }
-            }, 500);
-        }
-        
-        // Additional check: if we have a forcelang parameter, ensure it's applied
-        if (urlForceLang) {
-            console.log('Forcelang parameter detected:', urlForceLang);
-            // Force the language immediately
-            document.documentElement.lang = urlForceLang;
-            document.documentElement.setAttribute('lang', urlForceLang);
-            
-            // Update the selector to match
-            if (languageSelector) {
-                languageSelector.value = urlForceLang;
+            if (currentLang === 'ar') {
+                currentLangDisplay.textContent = 'العربية (ar)';
+            } else {
+                currentLangDisplay.textContent = 'English (en)';
             }
         }
     }
@@ -870,17 +844,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update language display on page load
     updateCurrentLanguageDisplay();
     
-    // Add smooth transition for direction changes
-    const navbarHeader = document.getElementById('navbar-header');
-    if (navbarHeader) {
-        navbarHeader.style.transition = 'direction 0.3s ease';
+    // Update user fullname display
+    function updateUserFullnameDisplay() {
+        const userFullnameDisplay = document.getElementById('user-fullname-display');
+        if (userFullnameDisplay) {
+            // The name should already be set by the template, but we can enhance it here if needed
+            const currentLang = document.documentElement.lang || 'ar';
+            const nameElements = userFullnameDisplay.querySelectorAll('[data-ar][data-en]');
+            nameElements.forEach(element => {
+                if (currentLang === 'ar') {
+                    element.textContent = element.getAttribute('data-ar');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+        }
     }
+    
+    // Update user name display on page load
+    updateUserFullnameDisplay();
     
     // Listen for language changes from Moodle's system
     const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
-                updateCurrentLanguageDisplay();
+                updateNavbarDirection();
             }
         });
     });

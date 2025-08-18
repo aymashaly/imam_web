@@ -258,6 +258,7 @@ class block_platforms extends block_base {
             text-align: center;
             margin: 0;
             opacity: 0.8;
+            display: none;
         }
         @media (max-width: 768px) {
             .platforms-title {

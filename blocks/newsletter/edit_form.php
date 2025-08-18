@@ -42,25 +42,25 @@ class block_newsletter_edit_form extends block_edit_form {
         // Section title
         $mform->addElement('text', 'config_section_title', get_string('configsectiontitle', 'block_newsletter'));
         $mform->setType('config_section_title', PARAM_TEXT);
-        $mform->setDefault('config_section_title', 'انضم إلى قائمة البريد الإلكتروني');
+        $mform->setDefault('config_section_title', 'اشترك للحصول على معلومات وأحدث الأخبار');
         $mform->addHelpButton('config_section_title', 'configsectiontitle', 'block_newsletter');
         
-        // Section description
-        $mform->addElement('textarea', 'config_section_description', get_string('configsectiondescription', 'block_newsletter'));
-        $mform->setType('config_section_description', PARAM_TEXT);
-        $mform->setDefault('config_section_description', 'احصل على آخر الأخبار والتحديثات حول الدورات الجديدة والعروض الخاصة');
-        $mform->addHelpButton('config_section_description', 'configsectiondescription', 'block_newsletter');
+        // Section subtitle
+        $mform->addElement('text', 'config_section_subtitle', get_string('configsectionsubtitle', 'block_newsletter'));
+        $mform->setType('config_section_subtitle', PARAM_TEXT);
+        $mform->setDefault('config_section_subtitle', 'وعروض مميزة أخرى حول بعد');
+        $mform->addHelpButton('config_section_subtitle', 'configsectionsubtitle', 'block_newsletter');
         
         // Button text
         $mform->addElement('text', 'config_button_text', get_string('configbuttontext', 'block_newsletter'));
         $mform->setType('config_button_text', PARAM_TEXT);
-        $mform->setDefault('config_button_text', 'اشترك الآن');
+        $mform->setDefault('config_button_text', 'Subscribe');
         $mform->addHelpButton('config_button_text', 'configbuttontext', 'block_newsletter');
         
         // Placeholder text
         $mform->addElement('text', 'config_placeholder_text', get_string('configplaceholdertext', 'block_newsletter'));
         $mform->setType('config_placeholder_text', PARAM_TEXT);
-        $mform->setDefault('config_placeholder_text', 'أدخل بريدك الإلكتروني');
+        $mform->setDefault('config_placeholder_text', 'Your email');
         $mform->addHelpButton('config_placeholder_text', 'configplaceholdertext', 'block_newsletter');
     }
 }

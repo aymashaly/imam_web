@@ -73,25 +73,47 @@ class block_features extends block_base {
 
     private function get_default_features() {
         return array(
+            // Row 1, Left Item
             array(
-                'title' => 'دورات معتمدة وشهادات موثقة',
-                'description' => 'نقدم برامج تدريبية معتمدة من أفضل الجامعات والمؤسسات العالمية مع شهادات موثقة تعزز مسارك المهني',
-                'color' => 'cyan'
+                'title' => 'دورات مجانية / مدفوعة',
+                'subtitle' => 'مع شهادة إتمام مجانية / مدفوعة',
+                'icon_color' => 'light-blue',
+                'icon_type' => 'laptop'
             ),
+            // Row 1, Right Item
             array(
-                'title' => 'مدربون خبراء ومتخصصون',
-                'description' => 'فريق من أكفأ المدربين والخبراء في مختلف المجالات يضمن لك تجربة تعليمية متميزة وفعالة',
-                'color' => 'blue'
+                'title' => 'المؤتمرات الوطنية والدولية',
+                'subtitle' => 'مع شهادة مجانية / مدفوعة',
+                'icon_color' => 'red',
+                'icon_type' => 'presentation'
             ),
+            // Row 2, Left Item
             array(
-                'title' => 'مرونة في التعلم والمواعيد',
-                'description' => 'تعلم في أي وقت ومن أي مكان بفضل منصتنا التفاعلية التي تتيح لك المرونة الكاملة في التعلم',
-                'color' => 'cyan'
+                'title' => 'البرامج المهنية المدفوعة',
+                'subtitle' => 'الدرجات المصغرة',
+                'icon_color' => 'orange',
+                'icon_type' => 'documents'
             ),
+            // Row 2, Right Item
             array(
-                'title' => 'دعم مستمر ومتابعة شخصية',
-                'description' => 'نقدم دعماً فنياً وأكاديمياً مستمراً مع متابعة شخصية لضمان تحقيق أهدافك التعليمية بكفاءة',
-                'color' => 'blue'
+                'title' => 'البرامج المهنية المدفوعة',
+                'subtitle' => 'الدرجات المصغرة',
+                'icon_color' => 'yellow',
+                'icon_type' => 'graduation'
+            ),
+            // Row 3, Left Item
+            array(
+                'title' => 'دورات مخصصة',
+                'subtitle' => 'مع شهادة مجانية / مدفوعة',
+                'icon_color' => 'orange',
+                'icon_type' => 'group'
+            ),
+            // Row 3, Right Item
+            array(
+                'title' => 'مدونات الخبراء',
+                'subtitle' => 'مع شهادة مجانية / مدفوعة',
+                'icon_color' => 'brown',
+                'icon_type' => 'chat'
             )
         );
     }
@@ -104,177 +126,155 @@ class block_features extends block_base {
             direction: rtl;
             text-align: right;
         }
+        
+        /* Hide from home page container */
+        .d-print-block .bottom-region-main-box .features-block {
+            display: none !important;
+        }
         .features-container {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.5) 0%, #ffffff 50%, rgba(243, 244, 246, 0.3) 100%);
-            padding: 6rem 1.5rem;
+            background: #ffffff;
+            padding: 4rem 2rem;
             position: relative;
-            overflow: hidden;
-        }
-        .features-background-1 {
-            position: absolute;
-            top: 25%;
-            left: 0;
-            width: 18rem;
-            height: 18rem;
-            background: rgba(97, 241, 255, 0.05);
-            border-radius: 50%;
-            filter: blur(3rem);
-        }
-        .features-background-2 {
-            position: absolute;
-            bottom: 25%;
-            right: 0;
-            width: 24rem;
-            height: 24rem;
-            background: rgba(18, 48, 113, 0.05);
-            border-radius: 50%;
-            filter: blur(3rem);
         }
         .features-content {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        .features-text {
-            order: 2;
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
         }
         .features-title {
             font-size: 3rem;
             font-weight: 700;
             color: #123071;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
         .features-subtitle {
             color: #7B7B7B;
             font-weight: 700;
             font-size: 1.25rem;
-            margin-bottom: 3rem;
             line-height: 1.6;
         }
-        .features-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .features-main-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .features-text {
+           display: grid
+;
+    grid-template-columns: 2fr 2fr;
+    gap: 4rem;
         }
         .feature-item {
             display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
+            flex-direction: row;
+            align-items: center;
             text-align: right;
+            gap: 1rem;
         }
-        .feature-dot {
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             flex-shrink: 0;
-            width: 0.75rem;
-            height: 0.75rem;
-            border-radius: 50%;
-            margin-top: 0.75rem;
         }
-        .feature-dot.cyan {
-            background: #61F1FF;
+        .feature-icon.red {
+            background: #FF6B6B;
         }
-        .feature-dot.blue {
-            background: #123071;
+        .feature-icon.yellow {
+            background: #FFD93D;
+        }
+        .feature-icon.light-blue {
+            background: #87CEEB;
+        }
+        .feature-icon.light-brown {
+            background: #D2691E;
+        }
+        .feature-icon.orange {
+            background: #FF8C42;
+        }
+        .feature-icon.brown {
+            background: #8B4513;
+        }
+        .feature-icon.dark-brown {
+            background: #654321;
+        }
+        .feature-icon-content {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .feature-content {
+            flex: 1;
         }
         .feature-content h3 {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 600;
             color: #123071;
-            margin-bottom: 0.75rem;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
         }
         .feature-content p {
             color: #7B7B7B;
-            font-size: 1.125rem;
-            line-height: 1.6;
+            font-size: 0.875rem;
+            margin: 0;
+            line-height: 1.4;
         }
         .features-image {
-            order: 1;
             position: relative;
+            overflow: visible;
         }
         .features-image img {
-            width: 100%;
+            width: 80%;
             height: auto;
             object-fit: cover;
-            border-radius: 1.5rem;
+            border-radius: 0;
+            position: relative;
+            z-index: 3;
+            transform: translate(0px, -150px) scale(1.2);
         }
-        .features-image-decoration-1 {
+        .features-blue-background {
             position: absolute;
-            top: -2rem;
-            right: -2rem;
-            width: 6rem;
-            height: 6rem;
-            background: linear-gradient(135deg, #61F1FF 0%, #02A9F5 100%);
-            border-radius: 50%;
-            opacity: 0.2;
-            filter: blur(2rem);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            z-index: 1;
         }
-        .features-image-decoration-2 {
+        .features-blue-corner {
             position: absolute;
-            bottom: -2rem;
-            left: -2rem;
-            width: 8rem;
-            height: 8rem;
-            background: linear-gradient(135deg, #123071 0%, #61F1FF 100%);
-            border-radius: 50%;
-            opacity: 0.15;
-            filter: blur(2rem);
+            bottom: -1rem;
+            left: -1rem;
+            height: 4rem;
+            width: 4rem;
+            z-index: 2;
+            opacity: 0.8;
+            transition: all 0.3s ease;
         }
-        .features-stats {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(0.5rem);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .features-stats-content {
-            text-align: center;
-        }
-        .features-stats-number {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: #123071;
-            margin-bottom: 0.5rem;
-        }
-        .features-stats-label {
-            font-size: 0.875rem;
-            color: #7B7B7B;
-        }
-        .features-stats-2 {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(0.5rem);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .features-stats-2 .features-stats-number {
-            color: #61F1FF;
+        .features-blue-corner:hover {
+            transform: scale(1.1);
+            opacity: 1;
         }
         @media (max-width: 1024px) {
-            .features-grid {
+            .features-main-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             .features-text {
-                order: 1;
-            }
-            .features-image {
-                order: 2;
-            }
-            .features-title {
-                font-size: 2.5rem;
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
         @media (max-width: 768px) {
@@ -284,56 +284,64 @@ class block_features extends block_base {
             .features-subtitle {
                 font-size: 1.125rem;
             }
-            .feature-content h3 {
-                font-size: 1.125rem;
-            }
-            .feature-content p {
-                font-size: 1rem;
-            }
         }
         </style>
         
         <div class="features-block">
             <div class="features-container">
-                <div class="features-background-1"></div>
-                <div class="features-background-2"></div>
                 <div class="features-content">
-                    <div class="features-grid">
-                        <div class="features-text">
-                            <h2 class="features-title">' . htmlspecialchars($title) . '</h2>
-                            <p class="features-subtitle">' . htmlspecialchars($subtitle) . '</p>
-                            <div class="features-list">';
+                    <div class="features-header">
+                        <h2 class="features-title">' . htmlspecialchars($title) . '</h2>
+                        <p class="features-subtitle">' . htmlspecialchars($subtitle) . '</p>
+                    </div>
+                    <div class="features-main-grid">
+                        <div class="features-image">
+                            <div class="features-blue-background"></div>
+                            <img src="https://i.ibb.co/whRCW50x/image-13.png" alt="منصة بُعد التعليمية">
+                        </div>
+                        <div class="features-text">';
         
         foreach ($features as $feature) {
             $html .= '
                                 <div class="feature-item">
-                                    <div class="feature-dot ' . htmlspecialchars($feature['color']) . '"></div>
+                                    <div class="feature-icon ' . htmlspecialchars($feature['icon_color']) . '">
+                                        <div class="feature-icon-content">';
+            
+            // Add icons that match the first image exactly
+            switch ($feature['icon_type']) {
+                case 'presentation':
+                    $html .= '<span style="font-size: 20px; color: #123071;">📊</span>';
+                    break;
+                case 'laptop':
+                    $html .= '<span style="font-size: 20px; color: #123071;">💻</span>';
+                    break;
+                case 'graduation':
+                    $html .= '<span style="font-size: 20px; color: #123071;">🎓</span>';
+                    break;
+                case 'documents':
+                    $html .= '<span style="font-size: 20px; color: #123071;">📄</span>';
+                    break;
+                case 'chat':
+                    $html .= '<span style="font-size: 20px; color: #123071;">💬</span>';
+                    break;
+                case 'group':
+                    $html .= '<span style="font-size: 20px; color: #123071;">👥</span>';
+                    break;
+                default:
+                    $html .= '<span style="font-size: 20px; color: #123071;">📋</span>';
+            }
+            
+            $html .= '
+                                        </div>
+                                    </div>
                                     <div class="feature-content">
                                         <h3>' . htmlspecialchars($feature['title']) . '</h3>
-                                        <p>' . htmlspecialchars($feature['description']) . '</p>
+                                        <p>' . htmlspecialchars($feature['subtitle']) . '</p>
                                     </div>
                                 </div>';
         }
         
         $html .= '
-                            </div>
-                        </div>
-                        <div class="features-image">
-                            <img src="data:image/svg+xml,%3Csvg width=\'400\' height=\'300\' viewBox=\'0 0 400 300\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f8fafc\'/%3E%3Ctext x=\'200\' y=\'150\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'16\' fill=\'%237B7B7B\'%3Eمنصة بُعد التعليمية%3C/text%3E%3C/svg%3E" alt="منصة بُعد التعليمية">
-                            <div class="features-image-decoration-1"></div>
-                            <div class="features-image-decoration-2"></div>
-                            <div class="features-stats">
-                                <div class="features-stats-content">
-                                    <div class="features-stats-number">+15K</div>
-                                    <div class="features-stats-label">متدرب نشط</div>
-                                </div>
-                            </div>
-                            <div class="features-stats-2">
-                                <div class="features-stats-content">
-                                    <div class="features-stats-number">+200</div>
-                                    <div class="features-stats-label">دورة تدريبية</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

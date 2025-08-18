@@ -59,92 +59,132 @@ class block_newsletter extends block_base {
         $this->content->footer = '';
         
         // Get configuration
-        $section_title = isset($this->config->section_title) ? $this->config->section_title : 'انضم إلى قائمة البريد الإلكتروني';
-        $section_description = isset($this->config->section_description) ? $this->config->section_description : 'احصل على آخر الأخبار والتحديثات حول الدورات الجديدة والعروض الخاصة';
-        $button_text = isset($this->config->button_text) ? $this->config->button_text : 'اشترك الآن';
-        $placeholder_text = isset($this->config->placeholder_text) ? $this->config->placeholder_text : 'أدخل بريدك الإلكتروني';
+        $section_title = isset($this->config->section_title) ? $this->config->section_title : ' وعروض مميزة أخرى حول بعد اشترك للحصول على معلومات وأحدث الأخبار '  ;
+        $section_subtitle = isset($this->config->section_subtitle) ? $this->config->section_subtitle : 'وعروض مميزة أخرى حول بعد';
+        $button_text = isset($this->config->button_text) ? $this->config->button_text : 'Subscribe';
+        $placeholder_text = isset($this->config->placeholder_text) ? $this->config->placeholder_text : 'Your email';
         
         // Generate the newsletter section HTML
-        $this->content->text = $this->generate_newsletter_section($section_title, $section_description, $button_text, $placeholder_text);
+        $this->content->text = $this->generate_newsletter_section($section_title, $section_subtitle, $button_text, $placeholder_text);
 
         return $this->content;
     }
 
-    private function generate_newsletter_section($title, $description, $button_text, $placeholder_text) {
+    private function generate_newsletter_section($title, $subtitle, $button_text, $placeholder_text) {
         $html = '
         <style>
         .newsletter-block {
             font-family: "DIN Next LT Arabic", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             direction: rtl;
-            text-align: right;
-        }
-        .newsletter-container {
+            text-align: center;
             position: relative;
-            padding: 6rem 1.5rem;
-            overflow: hidden;
         }
+        
+        .newsletter-container {
+            height: 600px;
+    position: relative;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    overflow: hidden;
+            
+        }
+        
         .newsletter-background {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #123071 0%, #0970B6 100%);
+            background-image: url("https://i.ibb.co/hxVN1kpX/image-14.png");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
         }
-        .newsletter-background::before {
-            content: "";
+        
+        .newsletter-overlay {
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%2361F1FF\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E");
-            opacity: 0.3;
+            opacity: 0;
+            background: linear-gradient(135deg, rgba(18, 48, 113, 0.9) 0%, rgba(9, 112, 182, 0.8) 100%);
+            border-radius: 20px;
         }
+        
         .newsletter-content {
             position: relative;
             z-index: 10;
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 100px auto;
             text-align: center;
             color: white;
         }
+        
         .newsletter-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 5rem;
             line-height: 1.2;
+            color: #767777;
         }
-        .newsletter-description {
+        
+        .newsletter-subtitle {
             font-size: 1.25rem;
             line-height: 1.6;
             margin-bottom: 3rem;
-            opacity: 0.9;
+            color: #e9ecef;
+            font-weight: 400;
         }
+        
         .newsletter-form {
             display: flex;
             gap: 1rem;
             max-width: 500px;
             margin: 0 auto;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
         }
-        .newsletter-input {
+        
+        .newsletter-input-group {
+            position: relative;
             flex: 1;
-            min-width: 250px;
-            padding: 1rem 1.5rem;
+            min-width: 300px;
+        }
+        
+        .newsletter-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 12px;
             font-size: 1rem;
             background: rgba(255, 255, 255, 0.95);
             color: #123071;
-            backdrop-filter: blur(0.5rem);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
+        
         .newsletter-input::placeholder {
-            color: #7B7B7B;
+            color: #6c757d;
+            font-weight: 400;
         }
+        
         .newsletter-input:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(97, 241, 255, 0.3);
+            background: rgba(255, 255, 255, 1);
         }
+        
+        .newsletter-input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.125rem;
+        }
+        
         .newsletter-button {
             padding: 1rem 2rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 12px;
             background: linear-gradient(135deg, #61F1FF 0%, #02A9F5 100%);
             color: white;
             font-weight: 600;
@@ -152,44 +192,52 @@ class block_newsletter extends block_base {
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(97, 241, 255, 0.3);
+            white-space: nowrap;
+            min-width: 140px;
         }
+        
         .newsletter-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(97, 241, 255, 0.4);
+            background: linear-gradient(135deg, #02A9F5 0%, #61F1FF 100%);
         }
-        .newsletter-decoration {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            width: 8rem;
-            height: 8rem;
-            background: rgba(97, 241, 255, 0.1);
-            border-radius: 50%;
-            filter: blur(2rem);
-        }
-        .newsletter-decoration-2 {
-            position: absolute;
-            bottom: 2rem;
-            left: 2rem;
-            width: 6rem;
-            height: 6rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            filter: blur(2rem);
-        }
+        
         @media (max-width: 768px) {
+            .newsletter-container {
+                padding: 3rem 1.5rem;
+                margin: 1rem;
+            }
+            
             .newsletter-title {
                 font-size: 2rem;
             }
-            .newsletter-description {
+            
+            .newsletter-subtitle {
                 font-size: 1.125rem;
+                margin-bottom: 2rem;
             }
+            
             .newsletter-form {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
             }
-            .newsletter-input {
+            
+            .newsletter-input-group {
                 min-width: 100%;
+            }
+            
+            .newsletter-button {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .newsletter-title {
+                font-size: 1.75rem;
+            }
+            
+            .newsletter-subtitle {
+                font-size: 1rem;
             }
         }
         </style>
@@ -203,21 +251,64 @@ class block_newsletter extends block_base {
             if (newsletterForm && emailInput && submitButton) {
                 newsletterForm.addEventListener("submit", function(e) {
                     e.preventDefault();
-                    
-                    const email = emailInput.value.trim();
-                    if (email) {
-                        // Here you can add AJAX call to submit the email
-                        alert("شكراً لك! تم الاشتراك بنجاح في النشرة الإخبارية.");
-                        emailInput.value = "";
-                    } else {
-                        alert("يرجى إدخال بريد إلكتروني صحيح.");
-                    }
+                    handleNewsletterSubmit();
                 });
                 
                 submitButton.addEventListener("click", function(e) {
                     e.preventDefault();
-                    newsletterForm.dispatchEvent(new Event("submit"));
+                    handleNewsletterSubmit();
                 });
+                
+                function handleNewsletterSubmit() {
+                    const email = emailInput.value.trim();
+                    if (email && isValidEmail(email)) {
+                        // Show success message
+                        showMessage("شكراً لك! تم الاشتراك بنجاح في النشرة الإخبارية.", "success");
+                        emailInput.value = "";
+                    } else {
+                        showMessage("يرجى إدخال بريد إلكتروني صحيح.", "error");
+                    }
+                }
+                
+                function isValidEmail(email) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+                
+                function showMessage(message, type) {
+                    // Remove existing messages
+                    const existingMessage = document.querySelector(".newsletter-message");
+                    if (existingMessage) {
+                        existingMessage.remove();
+                    }
+                    
+                    // Create new message
+                    const messageDiv = document.createElement("div");
+                    messageDiv.className = "newsletter-message";
+                    messageDiv.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        color: white;
+                        font-weight: 600;
+                        z-index: 10000;
+                        background: ${type === "success" ? "#28a745" : "#dc3545"};
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                    `;
+                    messageDiv.textContent = message;
+                    
+                    document.body.appendChild(messageDiv);
+                    
+                    // Auto remove after 3 seconds
+                    setTimeout(() => {
+                        if (messageDiv.parentNode) {
+                            messageDiv.remove();
+                        }
+                    }, 3000);
+                }
             }
         });
         </script>
@@ -225,13 +316,15 @@ class block_newsletter extends block_base {
         <div class="newsletter-block">
             <div class="newsletter-container">
                 <div class="newsletter-background"></div>
-                <div class="newsletter-decoration"></div>
-                <div class="newsletter-decoration-2"></div>
+                <div class="newsletter-overlay"></div>
+                
                 <div class="newsletter-content">
                     <h2 class="newsletter-title">' . htmlspecialchars($title) . '</h2>
-                    <p class="newsletter-description">' . htmlspecialchars($description) . '</p>
                     <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="' . htmlspecialchars($placeholder_text) . '" required>
+                        <div class="newsletter-input-group">
+                            <div class="newsletter-input-icon">📧</div>
+                            <input type="email" class="newsletter-input" placeholder="' . htmlspecialchars($placeholder_text) . '" required>
+                        </div>
                         <button type="submit" class="newsletter-button">' . htmlspecialchars($button_text) . '</button>
                     </form>
                 </div>

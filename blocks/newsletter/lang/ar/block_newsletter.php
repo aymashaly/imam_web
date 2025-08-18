@@ -22,14 +22,14 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Newsletter Block';
-$string['newnewsletterblock'] = 'New Newsletter Block';
-$string['configtitle'] = 'Block title';
-$string['configsectiontitle'] = 'Section title';
-$string['configsectionsubtitle'] = 'Section subtitle';
-$string['configbuttontext'] = 'Button text';
-$string['configplaceholdertext'] = 'Placeholder text';
-$string['configsectiontitle_help'] = 'The main title for the newsletter section';
-$string['configsectionsubtitle_help'] = 'The subtitle text for the newsletter section';
-$string['configbuttontext_help'] = 'The text for the subscribe button';
-$string['configplaceholdertext_help'] = 'The placeholder text for the email input field';
+$string['pluginname'] = 'كتلة النشرة الإخبارية';
+$string['newnewsletterblock'] = 'كتلة نشرة إخبارية جديدة';
+$string['configtitle'] = 'عنوان الكتلة';
+$string['configsectiontitle'] = 'عنوان القسم';
+$string['configsectionsubtitle'] = 'العنوان الفرعي للقسم';
+$string['configbuttontext'] = 'نص الزر';
+$string['configplaceholdertext'] = 'نص الحقل المؤقت';
+$string['configsectiontitle_help'] = 'العنوان الرئيسي لقسم النشرة الإخبارية';
+$string['configsectionsubtitle_help'] = 'النص الفرعي لقسم النشرة الإخبارية';
+$string['configbuttontext_help'] = 'النص الموجود على زر الاشتراك';
+$string['configplaceholdertext_help'] = 'النص المؤقت لحقل إدخال البريد الإلكتروني';

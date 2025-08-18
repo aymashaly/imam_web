@@ -105,52 +105,52 @@ class block_training_areas extends block_base {
     private function get_default_training_areas() {
         return array(
             array(
-                'title' => 'مهارات الامن السيبراني وخصوصية البيانات',
+                'title' => 'برامج التعليم الالكتروني',
                 'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/1dbda73010dd9e1fb60ada07c1150d47334628f8?width=190',
-                'alt_text' => 'Cybersecurity'
-            ),
-            array(
-                'title' => 'برامج ذوي الإعاقة',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/155809b8fc717590e17dcbcce6c8a25dcc4a784c?width=190',
-                'alt_text' => 'Accessibility'
+                'image_url' => 'https://i.ibb.co/97S4fKG/image-2.png',
+                'alt_text' => 'Electronic Education Programs'
             ),
             array(
                 'title' => 'تقنيات الذكاء الاصطناعي',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/0a30d7f2ee6664016a42dda0a4675e9a0e2ecbc5?width=190',
-                'alt_text' => 'AI'
+                'subtitle' => 'دورات متقدمة',
+                'image_url' => 'https://i.ibb.co/n87KXSZv/image-3.png',
+                'alt_text' => 'Artificial Intelligence Technologies'
             ),
             array(
-                'title' => 'برامج التعليم الالكتروني',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/fc740c32fb1c27dd7d75d5c7d3444c60762194ae?width=190',
-                'alt_text' => 'E-Learning'
+                'title' => 'برنامج ذوي الاعاقة',
+                'subtitle' => 'دورات متخصصة',
+                'image_url' => 'https://i.ibb.co/yFYDJrwx/image-6.png',
+                'alt_text' => 'People with Disabilities Program'
             ),
             array(
                 'title' => 'مجالات أخرى',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/c60efcca11e9056d588999c737d268006a77cd20?width=190',
-                'alt_text' => 'Other Fields'
+                'subtitle' => 'دورات متنوعة',
+                'image_url' => 'https://i.ibb.co/kghtY6bH/image-10.png',
+                'alt_text' => 'Other Areas'
             ),
             array(
                 'title' => 'التعليم والتعلم الجامعي',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/aa96d78c057ab04c12f34757dd2c25464afe7ce6?width=190',
-                'alt_text' => 'University Learning'
+                'subtitle' => 'دورات أكاديمية',
+                'image_url' => 'https://i.ibb.co/5gfBdmyh/image-9.png',
+                'alt_text' => 'University Education and Learning'
             ),
             array(
                 'title' => 'البرامج الجامعية القصيرة',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/30974c4a25943041b0d58a5217fc066677c5854c?width=190',
-                'alt_text' => 'Short Programs'
+                'subtitle' => 'دورات مكثفة',
+                'image_url' => 'https://i.ibb.co/tMmLx47M/image-8.png',
+                'alt_text' => 'Short University Programs'
             ),
             array(
                 'title' => 'مهارات الحياة',
-                'subtitle' => 'دورات معتمدة',
-                'image_url' => 'https://api.builder.io/api/v1/image/assets/TEMP/5975f1b832c698d52816ceb81ca6017a55d67ee2?width=190',
+                'subtitle' => 'دورات تطويرية',
+                'image_url' => 'https://i.ibb.co/zVq2nphg/image-7.png',
                 'alt_text' => 'Life Skills'
+            ),
+            array(
+                'title' => 'مهارات الأمن السيبراني',
+                'subtitle' => 'دورات أمنية',
+                'image_url' => 'https://i.ibb.co/k2cvyLFT/image-4.png',
+                'alt_text' => 'Cybersecurity Skills'
             )
         );
     }
@@ -225,6 +225,7 @@ class block_training_areas extends block_base {
             line-height: 1.75rem;
             color: rgb(113, 114, 132);
             box-sizing: border-box;
+            margin: 0 auto;
         }
         .training-grid-top {
             margin-bottom: 2rem;
@@ -254,9 +255,8 @@ class block_training_areas extends block_base {
         .training-card {
             position: relative;
             border-radius: 32px;
-            background-color: rgb(255, 255, 255);
             padding: 1.5rem;
-            box-shadow: rgba(0, 0, 0, 0) 0px 0px, rgba(0, 0, 0, 0) 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+            background-color: #f9fafb;
             transition-property: all;
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-duration: 150ms;
@@ -283,6 +283,11 @@ class block_training_areas extends block_base {
             vertical-align: middle;
             max-width: 100%;
             box-sizing: border-box;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .training-card:hover .training-icon img {
+            filter: grayscale(0%);
         }
         .training-card-content {
             text-align: center;
@@ -304,21 +309,37 @@ class block_training_areas extends block_base {
             box-sizing: border-box;
         }
         .training-card-decoration {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-            height: 5rem;
-            width: 5rem;
-            border-top-left-radius: 9999px;
-            background-color: rgba(97, 239, 255, 0.1);
-            opacity: 0;
-            transition-property: opacity;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms;
-            box-sizing: border-box;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    height: 3rem;
+    width: 3rem;
+    border-top-left-radius: 9999px;
+    background-color: rgba(97, 239, 255, 0.1);
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    box-sizing: border-box;
         }
         .training-card:hover .training-card-decoration {
             opacity: 1;
+        }
+        .training-card-animated-corner {
+            position: absolute;
+            bottom: -1rem;
+            left: -1rem;
+            height: 4rem;
+            width: 4rem;
+            opacity: 0;
+            transform: scale(0.8) rotate(-10deg);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .training-card:hover .training-card-animated-corner {
+            opacity: 1;
+            transform: scale(1.8) rotate(0deg) translate(7px, -8px);
         }
         @media (max-width: 768px) {
             .training-title {
@@ -355,6 +376,7 @@ class block_training_areas extends block_base {
                                 <p class="training-card-subtitle">' . htmlspecialchars($area['subtitle']) . '</p>
                             </div>
                             <div class="training-card-decoration"></div>
+                            <img src="https://i.ibb.co/93fdLxNg/image-11.png" alt="Animated Corner" class="training-card-animated-corner" />
                         </div>';
         }
         
@@ -377,6 +399,7 @@ class block_training_areas extends block_base {
                                 <p class="training-card-subtitle">' . htmlspecialchars($area['subtitle']) . '</p>
                             </div>
                             <div class="training-card-decoration"></div>
+                            <img src="https://i.ibb.co/93fdLxNg/image-11.png" alt="Animated Corner" class="training-card-animated-corner" />
                         </div>';
         }
         
